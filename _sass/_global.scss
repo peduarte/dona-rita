@@ -9,7 +9,11 @@ body {
 	font-size: $fontBase;
 	line-height: 1.6em;
 
-	padding: 60px;
+	padding: 20px;
+
+	@include small {
+		padding: 60px;
+	}
 }
 
 h1, h2, h3, h4 {
