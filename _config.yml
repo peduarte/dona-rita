@@ -1,0 +1,12 @@
+title: "Dona Rita"
+description: "Brazilian Cheese Bread"
+author: "Pedro Duarte"
+email: oi@donarita.co.uk
+url: "http://donarita.co.uk/"
+phone: "07912950992"
+baseurl: ""
+
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title.html

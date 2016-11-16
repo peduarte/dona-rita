@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: $fontDefault;
+	font-size: $fontBase;
+	line-height: 1.6em;
+
+	padding: 60px;
+}
+
+h1, h2, h3, h4 {
+	line-height: 2em;
+}
+
+.Copy {
+	margin-bottom: 30px;
+
+	p {
+		max-width: 600px;
+	}
+}

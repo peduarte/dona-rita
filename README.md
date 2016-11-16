@@ -1,1 +1,6 @@
-# dona-rita
+# 247handyman
+
+### Run dev
+```bash
+jekyll serve
+```
