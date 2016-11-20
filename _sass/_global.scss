@@ -20,10 +20,17 @@ h1, h2, h3, h4 {
 	line-height: 2em;
 }
 
-.Copy {
-	margin-bottom: 30px;
+h3 {
+	margin-top: 30px;
+}
 
-	p {
-		max-width: 600px;
-	}
+p {
+	max-width: 600px;
+	margin-bottom: 16px;
+}
+
+img {
+	vertical-align: middle;
+	max-width: 660px;
+	margin: 10px 0;
 }
