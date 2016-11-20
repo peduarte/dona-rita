@@ -4,8 +4,8 @@ layout: default
 
 ![Dona Rita](images/header.jpg)
 
-### AKA Pão de Queijo
-A proper Pão de Queijo is a two-bite business: crunchy on the outside and fluffy on the inside. Made with cassava flour and fresh cheese, it’s a farmer's take on traditional European bread - without the wheat. Pão de Queijo is a staple snack at most cafes, restaurants and dinner parties across Brazil. It’s cheesily addictive and naturally gluten free.
+### Pão de Queijo
+A proper Pão de Queijo (cheese bread) is a two-bite business: crunchy on the outside and fluffy on the inside. Made with cassava flour and fresh cheese, it’s a farmer's take on traditional European bread - without the wheat. Pão de Queijo is a staple snack at most cafes, restaurants and dinner parties across Brazil. It’s cheesily addictive and naturally gluten free.
 
 Try pairing it with a short black coffee Sao Paulo style, or spread thickly with guava jam* for a sweet contrast.
 
