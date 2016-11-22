@@ -14,6 +14,11 @@ When Rita left the tropics for Norwich she missed Pão de Queijo so much she sta
 
 ![Rita making the dough](images/hero.jpg)
 
+
+### Follow us
+You can follow our progress and be the first to know when we're ready on [Instagram](https://instagram.com/OiDonaRita), [Twitter](https://twitter.com/OiDonaRita) and [Facebook](https://www.facebook.com/OiDonaRita/).
+
+
 ### Contact
 Call us on {{ site.phone }}<br>
 Email us on [{{ site.email }}](mailto:{{ site.email }})
