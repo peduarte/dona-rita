@@ -6,32 +6,218 @@
 
 body {
 	font-family: $fontDefault;
-	font-size: $fontBase;
-	line-height: 1.6em;
+	font-size: 16px;
+	line-height: 26px;
 
-	padding: 20px;
+	background: #FECD53;
+	animation: fadeBackground 2300ms 300ms ease-in-out forwards;
 
-	@include small {
-		padding: 60px;
+	@include medium {
+		font-size: 20px;
+		line-height: 32px;
 	}
 }
 
-h1, h2, h3, h4 {
-	line-height: 2em;
+@keyframes fadeBackground {
+	100% {
+		background-color: $colorBackground;
+	}
 }
 
-h3 {
-	margin-top: 30px;
+.main {
+	opacity: 0;
+	animation: fadeContent 2000ms 1000ms ease-in-out forwards;
+}
+
+@keyframes fadeContent {
+	100% {
+		opacity: 1;
+	}
+}
+
+h1, h2, h3 {
+	font-family: $fontHighlight;
+}
+
+h1,
+.h1 {
+	font-size: 36px;
+	line-height: 36px;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+
+	@include medium {
+		font-size: 60px;
+		line-height: 60px;
+		letter-spacing: 1px;
+		margin-bottom: 40px;
+	}
+}
+
+h2,
+.h2,
+h3,
+.h3 {
+	font-size: 20px;
+	line-height: 20px;
+	margin-bottom: 20px;
+
+	@include medium {
+		font-size: 30px;
+		line-height: 30px;
+		margin-bottom: 40px;
+	}
+}
+
+h3,
+.h3 {
+	margin-top: 20px;
+
+	@include medium {
+		margin-top: 40px;
+	}
 }
 
 p {
-	max-width: 600px;
-	margin-bottom: 16px;
+	margin-bottom: 20px;
+
+	@include medium {
+		margin-bottom: 40px;
+	}
 }
 
-img {
+.small {
+	font-size: 13px;
+	line-height: 22px;
+
+	@include medium {
+		font-size: 14px;
+		line-height: 24px;
+	}
+}
+
+.faded {
+	color: #9b9b9b;
+}
+
+.measure {
+	padding-right: 60px;
+}
+
+.banner {
+	margin-bottom: 10px;
+}
+
+sup {
+	font-family: $fontHighlight;
+	font-size: 0.6em;
+	font-weight: bold;
+}
+
+.footnote {
+	position: relative;
+	margin-top: 20px;
+
+	@include medium { margin-top: 0; }
+
+	&:before {
+		content: attr(data-id) ".";
+		font-family: $fontHighlight;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 14px;
+		color: black;
+
+		position: absolute;
+		top: -24px;
+		left: 0;
+	}
+}
+
+img,
+.gallery-img {
 	vertical-align: middle;
 	width: 100%;
-	max-width: 660px;
-	margin: 10px 0;
+
+	margin-bottom: 20px;
+
+	@include medium {
+		margin-bottom: 40px;
+	}
+}
+
+.gallery {
+	@include medium {
+		height: 33vmax;
+		margin-bottom: 40px;
+	}
+}
+
+.gallery-img {
+	height: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	&.-two-x-three { padding-top: (3 / 2) * 100 + unquote("%"); }
+	&.-three-x-two { padding-top: (2 / 3) * 100 + unquote("%"); }
+
+	@include medium {
+		height: 100% !important;
+		padding-top: 0 !important;
+	}
+}
+
+.img-holder {
+	height: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	&.-sixteen-x-five { padding-top: (5 / 16) * 100 + unquote("%"); }
+}
+
+.h-100 {
+	@include medium {
+		height: 100%;
+	}
+}
+
+
+// REFACTOR BELOW
+.section {
+	padding: 40px 0 20px;
+	margin-bottom: 10px;
+	position: relative;
+
+	@include medium {
+		padding: 80px 0 40px;
+
+		/*
+		Pseudo elements to create a 10px "gutter" and overlap it
+		on the left and right sides of the section with the
+		color of the background to give it a recessed effect
+		without affecting the grid. MVP bro.
+		*/
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			background: $colorBackground;
+			width: 10px;
+			height: 100%;
+			top: 0;
+		}
+		&:before { left: 0; }
+		&:after { right: 0; }
+	}
+
+	&.-white {
+		background-color: white;
+	}
+
+	&.-black {
+		background-color: black;
+		color: white;
+	}
 }
