@@ -9,7 +9,7 @@ body {
 	font-size: 16px;
 	line-height: 26px;
 
-	background: #FECD53;
+	background: #f5c907;
 	animation: fadeBackground 2300ms 300ms ease-in-out forwards;
 
 	@include medium {
@@ -86,9 +86,14 @@ p {
 	}
 }
 
+.desc {
+	color: #f5c907;
+}
+
 .small {
 	font-size: 13px;
 	line-height: 22px;
+	margin-bottom: 20px;
 
 	@include medium {
 		font-size: 14px;
@@ -134,22 +139,17 @@ sup {
 	}
 }
 
-img,
-.gallery-img {
+img {
 	vertical-align: middle;
 	width: 100%;
-
 	margin-bottom: 20px;
-
-	@include medium {
-		margin-bottom: 40px;
-	}
 }
 
 .gallery {
 	@include medium {
 		height: 33vmax;
-		margin-bottom: 40px;
+		margin-top: 40px;
+		margin-bottom: 80px;
 	}
 }
 
@@ -168,13 +168,34 @@ img,
 	}
 }
 
-.img-holder {
+// REFACTOR
+.banner {
 	height: 0;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 
-	&.-sixteen-x-five { padding-top: (5 / 16) * 100 + unquote("%"); }
+	margin-bottom: 10px;
+
+	padding-top: (5 / 16) * 100 + unquote("%");
+}
+
+// REFACTOR
+.fake-img {
+	height: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	padding-top: 50%;
+
+	margin-top: 40px;
+	margin-bottom: 20px;
+
+	@include medium {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
 }
 
 .h-100 {
