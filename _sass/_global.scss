@@ -6,32 +6,315 @@
 
 body {
 	font-family: $fontDefault;
-	font-size: $fontBase;
-	line-height: 1.6em;
+	font-size: 16px;
+	line-height: 26px;
 
-	padding: 20px;
+	background: $colorYellow;
+	animation: fadeBackground 2300ms 300ms ease-in-out forwards;
 
-	@include small {
-		padding: 60px;
+	@include medium {
+		font-size: 20px;
+		line-height: 32px;
+		// background: red;
+	}
+
+	@include wide {
+		// background: blue;
 	}
 }
 
-h1, h2, h3, h4 {
-	line-height: 2em;
+@keyframes fadeBackground {
+	100% {
+		background-color: $colorBackground;
+	}
 }
 
-h3 {
-	margin-top: 30px;
+::selection {
+	background-color: $colorYellow;
+}
+
+.main {
+	opacity: 0;
+	animation: fadeContent 2000ms 1000ms ease-in-out forwards;
+}
+
+@keyframes fadeContent {
+	100% {
+		opacity: 1;
+	}
+}
+
+.logo {
+	margin: 20px 0 0 20px;
+
+	@include medium {
+		position: fixed;
+		margin: 0;
+		top: 20px;
+		left: 20px;
+		z-index: 2;
+	}
+}
+
+h1, h2, h3 {
+	font-family: $fontHighlight;
+}
+
+h1,
+.h1 {
+	font-size: 36px;
+	line-height: 36px;
+	letter-spacing: 1px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	@include medium {
+		font-size: 60px;
+		line-height: 60px;
+		letter-spacing: 1px;
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+}
+
+h2,
+.h2,
+h3,
+.h3 {
+	font-size: 20px;
+	line-height: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	@include medium {
+		font-size: 30px;
+		line-height: 30px;
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+}
+
+h3,
+.h3 {
+	margin-top: 20px;
+
+	@include medium {
+		margin-top: 40px;
+	}
 }
 
 p {
-	max-width: 600px;
-	margin-bottom: 16px;
+	margin-bottom: 20px;
+
+	@include medium {
+		margin-bottom: 40px;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.button {
+	display: inline-block;
+	border: 1px solid currentColor;
+	font-size: 16px;
+	line-height: 30px;
+	padding: 15px 30px;
+
+	&:hover {
+		background-color: $colorYellow;
+		text-decoration: none;
+	}
+
+	.button-group & {
+		display: block;
+		width: 100%;
+		text-align: center;
+
+		&:not(:last-child) {
+			border-bottom: none;
+		}
+	}
+}
+
+
+.small {
+	font-size: 13px;
+	line-height: 22px;
+	margin-bottom: 20px;
+
+	@include medium {
+		font-size: 14px;
+		line-height: 24px;
+	}
+}
+
+.faded {
+	color: #9b9b9b;
+}
+
+.measure {
+	padding-right: 60px;
+}
+
+.title-desc {
+	display: block;
+	color: $colorYellow;
+}
+
+sup {
+	font-family: $fontHighlight;
+	font-size: 0.6em;
+	font-weight: bold;
+}
+
+.footnote {
+	position: relative;
+	margin-top: 20px;
+
+	@include medium { margin-top: 0; }
+
+	&:before {
+		content: attr(data-id) ".";
+		font-family: $fontHighlight;
+		font-weight: bold;
+		font-size: 14px;
+		line-height: 14px;
+		color: black;
+
+		position: absolute;
+		top: -24px;
+		left: 0;
+	}
 }
 
 img {
 	vertical-align: middle;
 	width: 100%;
-	max-width: 660px;
-	margin: 10px 0;
+	margin-bottom: 20px;
+}
+
+
+// REFACTOR BELOW
+.section {
+	padding: 20px 10px;
+	margin-bottom: 10px;
+	position: relative;
+
+	@include medium {
+		padding: 40px 0;
+
+		/*
+		Pseudo elements to create a 10px "gutter" and overlap it
+		on the left and right sides of the section with the
+		color of the background to give it a recessed effect
+		without affecting the grid. MVP bro.
+		*/
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			background: $colorBackground;
+			width: 10px;
+			height: 100%;
+			top: 0;
+		}
+		&:before { left: 0; }
+		&:after { right: 0; }
+	}
+
+	&.-white {
+		background-color: white;
+	}
+
+	&.-black {
+		background-color: black;
+		color: white;
+	}
+}
+
+
+// CONTACT
+.contact {
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.contact-phone {
+	font-family: $fontHighlight;
+	font-weight: bold;
+	display: block;
+	font-size: 30px;
+	line-height: 30px;
+}
+
+.contact-or {
+	display: block;
+	line-height: 1px;
+	height: 1px;
+	background: #979797;
+	text-align: center;
+	margin: 40px 0;
+
+	span {
+		display: inline-block;
+		padding: 0 10px;
+		position: relative;
+		top: -10px;
+		line-height: 20px;
+		background: $colorBackground;
+	}
+}
+
+.contact-link {
+	display: block;
+	font-size: 20px;
+	line-height: 32px;
+}
+
+// FAKE IMG
+.fake-img-group {
+	@include medium {
+		height: 33vmax;
+		// margin-top: 40px;
+		// margin-bottom: 80px;
+	}
+}
+
+.fake-img-wrapper {
+	@include medium {
+		height: 100%;
+	}
+}
+
+.fake-img {
+	height: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	margin-bottom: 10px;
+
+	&.-two-x-three { padding-top: (3 / 2) * 100 + unquote("%"); }
+	&.-three-x-two { padding-top: (2 / 3) * 100 + unquote("%"); }
+	&.-sixteen-x-five { padding-top: (5 / 16) * 100 + unquote("%"); }
+	&.-square { padding-top: 100%; }
+
+	.fake-img-group & {
+		@include medium {
+			height: 100%;
+			padding-top: 0;
+		}
+	}
+}
+
+// BANNER
+.banner {
+	max-width: 100% !important;
 }

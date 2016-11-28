@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+
+<div class="section">
+	<div class="grid">
+		<h1 class="col md-push-2 title">
+			Dona Rita.<br>
+			Pão de Queijo.
+			<span class="title-desc">Brazilian cheese</span>
+			<span class="title-desc">bread/bun/ball.</span>
+		</h1>
+	</div>
+
+	{% include about-pdq.liquid %}
+
+	<div class="grid">
+		<div class="gallery fake-img-group">
+			<div class="col md-6 md-push-2 fake-img-wrapper">
+				<div class="fake-img -three-x-two" style="background-image: url(/images/img-1.jpg);"></div>
+			</div>
+
+			<div class="col md-3 fake-img-wrapper">
+				<div class="fake-img -two-x-three" style="background-image: url(/images/rita.jpg);"></div>
+			</div>
+		</div>
+	</div>
+
+	{% include about-rita.liquid %}
+</div>
+
+
+<div class="grid banner">
+	<div class="col">
+		<div class="banner-img fake-img -sixteen-x-five" style="background-image: url(/images/banner.jpg);"></div>
+	</div>
+</div>
+
+
+<div class="section -black">
+	{% include eat.liquid %}
+</div>
+
+
+<div class="section -white">
+	{% include family-business.liquid %}
+</div>
+
+
+<div class="section">
+	{% include contact.liquid %}
+</div>
