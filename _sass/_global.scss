@@ -15,11 +15,6 @@ body {
 	@include medium {
 		font-size: 20px;
 		line-height: 32px;
-		// background: red;
-	}
-
-	@include wide {
-		// background: blue;
 	}
 }
 
@@ -166,6 +161,9 @@ a {
 .title-desc {
 	display: block;
 	color: $colorYellow;
+	&::selection {
+		background-color: black;
+	}
 }
 
 sup {
@@ -298,7 +296,6 @@ img {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-
 	margin-bottom: 10px;
 
 	&.-two-x-three { padding-top: (3 / 2) * 100 + unquote("%"); }
@@ -317,4 +314,8 @@ img {
 // BANNER
 .banner {
 	max-width: 100% !important;
+}
+
+.fluid {
+	width: 100%;
 }
