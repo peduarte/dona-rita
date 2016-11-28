@@ -155,7 +155,9 @@ a {
 }
 
 .measure {
-	padding-right: 60px;
+	@include medium {
+		padding-right: 60px;
+	}
 }
 
 .title-desc {
