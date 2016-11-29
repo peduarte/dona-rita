@@ -9,7 +9,6 @@ body {
 	font-size: 16px;
 	line-height: 26px;
 	letter-spacing: 0.04em;
-	-webkit-font-smoothing: antialiased;
 
 	background: $colorBackground;
 
@@ -151,7 +150,11 @@ a {
 }
 
 .faded {
-	color: #9b9b9b;
+	color: rgba(black, 0.4);
+
+	.-blue & {
+		color: rgba(white, 0.4);
+	}
 }
 
 .measure {
@@ -172,7 +175,12 @@ sup {
 	font-family: $fontHighlight;
 	font-size: 0.6em;
 	font-weight: bold;
+
+	&.-yellow { color: $colorYellow; }
+	&.-salmon { color: $colorSalmon; }
+	&.-blue { color: $colorBlue; }
 }
+
 
 .footnote {
 	position: relative;
@@ -180,18 +188,22 @@ sup {
 
 	@include medium { margin-top: 0; }
 
-	&:before {
-		content: attr(data-id) ".";
+	&::before {
+		content: attr(data-id);
 		font-family: $fontHighlight;
 		font-weight: bold;
 		font-size: 14px;
 		line-height: 14px;
-		color: black;
+		color: inherit;
 
 		position: absolute;
 		top: -24px;
 		left: 0;
 	}
+
+	&.-yellow::before { color: $colorYellow; }
+	&.-salmon::before { color: $colorSalmon; }
+	&.-blue::before { color: $colorBlue; }
 }
 
 img {
