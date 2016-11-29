@@ -11,28 +11,20 @@ body {
 	letter-spacing: 0.04em;
 	-webkit-font-smoothing: antialiased;
 
-	background: $colorYellow;
-	animation: fadeBackground 2300ms 300ms ease-in-out forwards;
+	background: $colorBackground;
 
 	@include medium {
 		font-size: 20px;
 		line-height: 32px;
 	}
 }
-
-@keyframes fadeBackground {
-	100% {
-		background-color: $colorBackground;
-	}
-}
-
 ::selection {
 	background-color: $colorYellow;
 }
 
 .main {
 	opacity: 0;
-	animation: fadeContent 2000ms 1000ms ease-in-out forwards;
+	animation: fadeContent 1600ms 600ms ease-in-out forwards;
 }
 
 @keyframes fadeContent {
@@ -300,8 +292,12 @@ img {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	position: relative;
+
+	@include medium {
+		margin-bottom: 0;
+	}
 
 	&.-two-x-three { padding-top: (3 / 2) * 100 + unquote("%"); }
 	&.-three-x-two { padding-top: (2 / 3) * 100 + unquote("%"); }
@@ -334,6 +330,26 @@ img {
 // BANNER
 .banner {
 	max-width: 100% !important;
+	padding: 0 20px;
+
+	@include medium {
+		padding: 0 10px;
+		margin-bottom: 10px;
+	}
+}
+
+.banner-img {
+	&.-small {
+		@include medium {
+			display: none;
+		}
+	}
+	&.-medium {
+		display: none;
+		@include medium {
+			display: block;
+		}
+	}
 }
 
 .fluid {
