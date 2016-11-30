@@ -329,7 +329,7 @@ img {
 		}
 	}
 
-	&::after {
+	html:not(.no-js) &::after {
 		content: "";
 		position: absolute;
 		top: 0;
