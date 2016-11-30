@@ -173,7 +173,8 @@ a {
 
 sup {
 	font-family: $fontHighlight;
-	font-size: 0.6em;
+	font-size: 25px;
+	line-height: 0;
 	font-weight: bold;
 
 	&.-yellow { color: $colorYellow; }
@@ -192,8 +193,8 @@ sup {
 		content: attr(data-id);
 		font-family: $fontHighlight;
 		font-weight: bold;
-		font-size: 14px;
-		line-height: 14px;
+		font-size: 25px;
+		line-height: 25px;
 		color: inherit;
 
 		position: absolute;
