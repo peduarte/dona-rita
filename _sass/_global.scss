@@ -6,15 +6,15 @@
 
 body {
 	font-family: $fontDefault;
-	font-size: 16px;
-	line-height: 26px;
-	letter-spacing: 0.04em;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0.02em;
 
 	background: $colorBackground;
 
 	@include medium {
-		font-size: 20px;
-		line-height: 32px;
+		font-size: 18px;
+		line-height: 30px;
 
 		// For pages with full coloured background
 		// this is needed to keep the 10px spacing around it.
@@ -117,7 +117,7 @@ a {
 .button {
 	display: inline-block;
 	border: 1px solid currentColor;
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 30px;
 	padding: 15px 30px;
 	letter-spacing: 0.2em;
@@ -140,12 +140,12 @@ a {
 
 
 .small {
-	font-size: 13px;
+	font-size: 12px;
 	line-height: 22px;
 	margin-bottom: 20px;
 
 	@include medium {
-		font-size: 14px;
+		font-size: 13px;
 		line-height: 24px;
 	}
 }
