@@ -164,9 +164,16 @@ a {
 	}
 }
 
+.measure-wider {
+	@include wide {
+		padding-right: 60px;
+	}
+}
+
 .title-desc {
 	display: block;
 	color: $colorSalmon;
+
 	&::selection {
 		background-color: black;
 	}
