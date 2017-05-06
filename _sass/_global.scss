@@ -279,6 +279,10 @@ img {
 	}
 }
 
+.product-section {
+	padding-top: 140px;
+}
+
 
 // CONTACT
 .contact {
@@ -399,4 +403,81 @@ img {
 
 .fluid {
 	width: 100%;
+}
+
+
+// FORMS
+input[type="text"],
+input[type="number"] {
+	-webkit-appearance: none;
+	appearance: none;
+	font-size: 16px;
+	font-family: inherit;
+	line-height: 30px;
+	padding: 15px 30px;
+	border: 1px solid darken($colorBackground, 10%);
+	width: 200px;
+	margin: 0 20px 20px 0;
+
+	&:hover {
+		border-color: #999;
+	}
+
+	&:focus {
+		border-color: black;
+		outline: none;
+	}
+}
+
+select {
+	-webkit-appearance: none;
+	appearance: none;
+	font-size: 16px;
+	font-family: inherit;
+	line-height: 30px;
+	padding: 15px 40px 15px 30px;
+	border: 1px solid darken($colorBackground, 10%);
+	border-radius: 0;
+	width: 200px;
+	margin: 0 20px 20px 0;
+
+	&:hover {
+		border-color: #999;
+	}
+
+	&:focus {
+		border-color: black;
+		outline: none;
+	}
+}
+
+button {
+	-webkit-appearance: none;
+	appearance: none;
+	display: inline-block;
+	background: transparent;
+	border: 1px solid currentColor;
+	font-size: 14px;
+	font-family: inherit;
+	line-height: 30px;
+	padding: 15px 30px;
+	letter-spacing: 0.2em;
+	margin: 0 20px 20px 0;
+
+	&:hover {
+		background-color: $colorSalmon;
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.postcode-message {
+	font-size: 14px;
+	padding: 20px;
+	background-color: $colorYellow;
+
+	display: none;
 }
