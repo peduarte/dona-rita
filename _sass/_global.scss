@@ -416,6 +416,7 @@ input[type="number"] {
 	line-height: 30px;
 	padding: 15px 30px;
 	border: 1px solid darken($colorBackground, 10%);
+	border-radius: 0;
 	margin: 0 20px 20px 0;
 
 	width: 100%;
@@ -487,6 +488,10 @@ button {
 
 	&:focus {
 		outline: none;
+	}
+
+	&:disabled {
+		opacity: 0.5;
 	}
 }
 
