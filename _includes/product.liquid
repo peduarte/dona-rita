@@ -106,12 +106,13 @@
 	var variantSelect;
 
 	function applyHacks(component) {
+		Product.selectedQuantity = 2;
+
 		setTimeout(function() {
 			buyButton = component.node.querySelector('.shopify-buy__btn');
 			qtyInput =  component.node.querySelector('.shopify-buy__quantity');
 			variantSelect = component.node.querySelector('.shopify-buy__option-select__select');
 
-			Product.selectedQuantity = 2;
 			Product.model.buttonDisabled = true;
 			buyButton.setAttribute('disabled', 'disabled');
 
@@ -128,7 +129,6 @@
 	}
 
 	function onInputChange(event) {
-		console.log('change', Number(event.target.value));
 		if (Number(event.target.value) >= 2) {
 			buyButton.removeAttribute('disabled');
 		} else {
