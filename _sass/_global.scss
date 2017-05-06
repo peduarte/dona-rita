@@ -416,8 +416,13 @@ input[type="number"] {
 	line-height: 30px;
 	padding: 15px 30px;
 	border: 1px solid darken($colorBackground, 10%);
-	width: 200px;
 	margin: 0 20px 20px 0;
+
+	width: 100%;
+
+	@include medium {
+		width: 200px;
+	}
 
 	&:hover {
 		border-color: #999;
@@ -438,8 +443,13 @@ select {
 	padding: 15px 40px 15px 30px;
 	border: 1px solid darken($colorBackground, 10%);
 	border-radius: 0;
-	width: 200px;
 	margin: 0 20px 20px 0;
+
+	width: 100%;
+
+	@include medium {
+		width: 200px;
+	}
 
 	&:hover {
 		border-color: #999;
@@ -463,6 +473,12 @@ button {
 	padding: 15px 30px;
 	letter-spacing: 0.2em;
 	margin: 0 20px 20px 0;
+
+	width: 100%;
+
+	@include medium {
+		width: auto;
+	}
 
 	&:hover {
 		background-color: $colorSalmon;
