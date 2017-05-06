@@ -1,0 +1,206 @@
+<div class="section product-section">
+	<div class="grid">
+		<div class="col fluid md-6 lg-5 lg-push-1">
+			<img src="{{ site.url }}/images/product.png" />
+		</div>
+
+		<div class="col fluid md-6 lg-5">
+			<h1>Bake-at-home frozen pack.</h1>
+			<h3 class="color-salmon1">15 cheesy balls.<br>£5.</h3>
+
+			<div class="postcode" id="postcode-holder">
+				<p class="small">Enter your postcode</p>
+				<input type="text" id="postcode" placeholder="EG: E3 3AF" />
+				<button type="button" id="postCodeButton">Check</button>
+				<p class="postcode-message postcode-nope">Unfortunately we currently don't deliver to this postcode.</p>
+				<p class="postcode-message postcode-wrong">Please enter a valid postcode.</p>
+			</div>
+
+
+			<div id="product-holder" style="display: none;"></div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.shopify-buy__option-select-wrapper {
+		position: relative;
+		display: inline;
+	}
+	.shopify-buy__select-icon {
+		width: 15px;
+		position: absolute;
+		right: 45px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.shopify-buy__quantity-container,
+	.shopify-buy__btn-wrapper {
+		display: inline;
+	}
+
+	.shopify-buy__option-select__label {
+		display: none;
+	}
+</style>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+(function () {
+
+	var productHolder = document.getElementById('product-holder');
+	var postCodeHolder = document.getElementById('postcode-holder');
+
+	/* START POST CODE VALIDATOR */
+	var allowedPostCodes = ["E1","E14","E15","E1W","E2","E3","E5","E77","E8","E9","E98","EC1","EC1A","EC1M","EC1N","EC1P","EC1R","EC1V","EC1Y","EC2","EC2A","EC2M","EC2N","EC2P","EC2R","EC2V","EC2Y","EC3","EC3A","EC3M","EC3N","EC3P","EC3R","EC3V","EC4","EC4A","EC4M","EC4N","EC4P","EC4R","EC4V","EC4Y","EC50","N16","N1P","N5","N6","W10"];
+	var postCodeInput = document.getElementById('postcode');
+
+	var xhr = new XMLHttpRequest();
+
+	function validatePostCode(postcode, callback) {
+		xhr.open('GET', 'https://api.postcodes.io/postcodes/' + postcode);
+		xhr.send(null);
+		xhr.onreadystatechange = function() {
+			var DONE = 4;
+			var OK = 200;
+			if (xhr.readyState === DONE) {
+				if (xhr.status === OK) {
+					callback(JSON.parse(xhr.response));
+				} else {
+					callback(new Error('Error: ' + xhr.status));
+				}
+			}
+		}
+	}
+
+	var postCodeUndelieverable = document.querySelector('.postcode-nope');
+	var postCodeInvalid = document.querySelector('.postcode-wrong');
+
+	postCodeButton.addEventListener('click', function() {
+		validatePostCode(postCodeInput.value, function(response) {
+			if (response.status === 200) {
+				var outcode = response.result.outcode;
+				if (allowedPostCodes.indexOf(outcode) > -1) {
+					productHolder.style.display = 'block';
+					postCodeHolder.style.display = 'none';
+				} else {
+					postCodeUndelieverable.style.display = 'block';
+					postCodeInvalid.style.display = 'none';
+				}
+			} else {
+				postCodeUndelieverable.style.display = 'none';
+				postCodeInvalid.style.display = 'block';
+				throw new Error('Postcode not valid ' + response)
+			}
+		});
+	});
+
+
+	/* END POST CODE VALIDATOR */
+
+	/* START CUSTOM HACKS 💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩 */
+	var Product;
+	var buyButton;
+	var qtyInput;
+	var variantSelect;
+
+	function applyHacks(component) {
+		buyButton = component.node.querySelector('.shopify-buy__btn');
+		qtyInput =  component.node.querySelector('.shopify-buy__quantity');
+		variantSelect = component.node.querySelector('.shopify-buy__option-select__select');
+
+		Product.selectedQuantity = 2;
+		Product.model.buttonDisabled = true;
+		buyButton.setAttribute('disabled', 'disabled');
+
+		qtyInput.addEventListener('change', onInputChange)
+		qtyInput.addEventListener('blur', onInputChange)
+		qtyInput.addEventListener('keyup', onInputChange)
+
+		setTimeout(function() {
+			var option = document.createElement("option");
+			option.text = "Delivery slot";
+			option.setAttribute('disabled', 'disabled');
+			option.setAttribute('selected', 'selected');
+			variantSelect.appendChild(option);
+		}, 0)
+	}
+
+	function onInputChange(event) {
+		console.log('change', Number(event.target.value));
+		if (Number(event.target.value) >= 2) {
+			buyButton.removeAttribute('disabled');
+		} else {
+			buyButton.setAttribute('disabled', 'disabled');
+		}
+	}
+	/* END CUSTOM HACKS 💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩 */
+
+
+	var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+
+	if (window.ShopifyBuy) {
+		if (window.ShopifyBuy.UI) {
+			ShopifyBuyInit();
+		} else {
+			loadScript();
+		}
+	} else {
+		loadScript();
+	}
+
+	function loadScript() {
+		var script = document.createElement('script');
+		script.async = true;
+		script.src = scriptURL;
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+		script.onload = ShopifyBuyInit;
+	}
+
+	function ShopifyBuyInit() {
+		var client = ShopifyBuy.buildClient({
+			domain: 'dona-rita.myshopify.com',
+			apiKey: '260e658ec8cdc689ca1342a79adba733',
+			appId: '6',
+		});
+
+		var componentOptions = {
+			"product": {
+				"iframe": false,
+				"buttonDestination": "directCheckout",
+				"variantId": "all",
+				"width": "240px",
+				"contents": {
+					"img": false,
+					"title": false,
+					"price": false,
+					"description": false,
+					"button": true,
+					"quantity": true
+				},
+				"text": {
+					"button": "Buy me"
+				},
+				"events": {
+					"afterInit": applyHacks
+				}
+			},
+			"cart": {
+				"popup": false
+			}
+		};
+
+		ShopifyBuy.UI.onReady(client).then(function(ui) {
+			ui.createComponent('product', {
+				id: [9367035273],
+				node: productHolder,
+				moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
+				options: componentOptions,
+			});
+			Product = ui.components.product[0];
+		});
+	}
+})();
+/*]]>*/
+</script>
