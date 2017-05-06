@@ -106,19 +106,19 @@
 	var variantSelect;
 
 	function applyHacks(component) {
-		buyButton = component.node.querySelector('.shopify-buy__btn');
-		qtyInput =  component.node.querySelector('.shopify-buy__quantity');
-		variantSelect = component.node.querySelector('.shopify-buy__option-select__select');
-
-		Product.selectedQuantity = 2;
-		Product.model.buttonDisabled = true;
-		buyButton.setAttribute('disabled', 'disabled');
-
-		qtyInput.addEventListener('change', onInputChange)
-		qtyInput.addEventListener('blur', onInputChange)
-		qtyInput.addEventListener('keyup', onInputChange)
-
 		setTimeout(function() {
+			buyButton = component.node.querySelector('.shopify-buy__btn');
+			qtyInput =  component.node.querySelector('.shopify-buy__quantity');
+			variantSelect = component.node.querySelector('.shopify-buy__option-select__select');
+
+			Product.selectedQuantity = 2;
+			Product.model.buttonDisabled = true;
+			buyButton.setAttribute('disabled', 'disabled');
+
+			qtyInput.addEventListener('change', onInputChange)
+			qtyInput.addEventListener('blur', onInputChange)
+			qtyInput.addEventListener('keyup', onInputChange)
+
 			var option = document.createElement("option");
 			option.text = "Delivery slot";
 			option.setAttribute('disabled', 'disabled');
