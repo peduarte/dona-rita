@@ -1,15 +1,15 @@
 <div class="section product-section">
 	<div class="grid">
-		<div class="col sm-11 sm-push-1 md-6 lg-5 lg-push-1">
+		<div class="col sm-11 sm-push-1 md-6 md-push-0 lg-5 lg-push-1">
 			<img src="{{ site.url }}/images/product.png" />
 		</div>
 
 		<div class="col fluid md-6 lg-5">
-			<h1>Bake-at-home frozen pack.</h1>
+			<h1 style="margin-top: 0;">Bake-at-home frozen pack.</h1>
 			<h3 class="color-salmon1">15 cheesy balls.<br>£5.</h3>
 
 			<div class="postcode" id="postcode-holder">
-				<p class="small">Enter your postcode</p>
+				<p class="small">We're a small family business and we're currently handling the deliveries ourselves. For this reason we only deliver in certain postcodes. Enter your postcode below and let's hope we can deliver to you.</p>
 				<input type="text" id="postcode" placeholder="EG: E3 3AF" />
 				<button type="button" id="postCodeButton">Check</button>
 				<p class="postcode-message postcode-nope">Unfortunately we don't deliver to this postcode. But <a class="color-black" href="mailto:oi@donarita.co.uk">send us an email</a> with your postcode and we'll see what we can do!</p>
@@ -17,7 +17,10 @@
 			</div>
 
 
-			<div id="product-holder" style="display: none;"></div>
+			<div id="product-holder" style="display: none;">
+				<p class="small">We only deliver on Sundays.<br>The next delivery date will be Sunday 28th May. You can choose one from the following timeslots: morning (9am - 12pm), afternoon (12pm - 5pm) and evening (5pm - 8pm).</p>
+				<div id="product-inject"></div>
+			</div>
 			<p class="postcode-message message-qty">The minimum order quantity is 2.</p>
 		</div>
 	</div>
@@ -204,7 +207,7 @@
 		ShopifyBuy.UI.onReady(client).then(function(ui) {
 			ui.createComponent('product', {
 				id: [9367035273],
-				node: productHolder,
+				node: document.getElementById('product-inject'),
 				moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
 				options: componentOptions,
 			});

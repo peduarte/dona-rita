@@ -46,6 +46,10 @@
 			.md-pull-#{$i} { margin-right: $width; }
 		}
 	}
+	@include medium {
+		.md-push-0 { margin-left: 0; }
+		.md-pull-0 { margin-right: 0; }
+	}
 
 	@for $i from 1 through 12 {
 		$width: ($colWidth * $i) + unquote("%");
@@ -54,6 +58,10 @@
 			.lg-push-#{$i} { margin-left: $width; }
 			.lg-pull-#{$i} { margin-right: $width; }
 		}
+	}
+	@include wide {
+		.lg-push-0 { margin-left: 0; }
+		.lg-pull-0 { margin-right: 0; }
 	}
 }
 
