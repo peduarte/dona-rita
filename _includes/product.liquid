@@ -83,15 +83,18 @@
 	var orderQtyInvalid = document.querySelector('.message-qty');
 
 	postCodeButton.addEventListener('click', function() {
-		validatePostCode(postCodeInput.value, function(response) {
+		var postCode = postCodeInput.value;
+		validatePostCode(postCode, function(response) {
 			if (response.status === 200) {
 				var outcode = response.result.outcode;
 				if (allowedPostCodes.indexOf(outcode) > -1) {
 					productHolder.style.display = 'block';
 					postCodeHolder.style.display = 'none';
+					ga('send', 'event', 'Postcode', 'check', 'deliverable', outcode);
 				} else {
 					postCodeUndelieverable.style.display = 'block';
 					postCodeInvalid.style.display = 'none';
+					ga('send', 'event', 'Postcode', 'check', 'undeliverable', outcode);
 				}
 			} else {
 				postCodeUndelieverable.style.display = 'none';
