@@ -90,11 +90,11 @@
 				if (allowedPostCodes.indexOf(outcode) > -1) {
 					productHolder.style.display = 'block';
 					postCodeHolder.style.display = 'none';
-					ga('send', 'event', 'Postcode', 'check', 'deliverable', outcode);
+					ga('send', 'event', 'Postcode', 'deliverable', outcode);
 				} else {
 					postCodeUndelieverable.style.display = 'block';
 					postCodeInvalid.style.display = 'none';
-					ga('send', 'event', 'Postcode', 'check', 'undeliverable', outcode);
+					ga('send', 'event', 'Postcode', 'undeliverable', outcode);
 				}
 			} else {
 				postCodeUndelieverable.style.display = 'none';
