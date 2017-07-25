@@ -520,7 +520,70 @@ button {
 	font-size: 14px;
 	padding: 20px;
 	color: white;
-	background-color: $colorYellow;
+	background-color: $colorSalmon;
 
 	display: none;
+}
+
+.delivery-date {
+	background-color: $colorYellow;
+	color: white;
+	padding: 10px 20px;
+
+	display: flex;
+	align-items: center;
+
+	svg {
+		width: 26px;
+		margin-right: 10px;
+	}
+}
+
+
+// Shopify
+.shopify-buy__option-select-wrapper {
+	position: relative;
+	display: inline;
+}
+
+.shopify-buy__select-icon {
+	width: 15px;
+	position: absolute;
+	right: 45px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.shopify-buy__quantity-container,
+.shopify-buy__btn-wrapper {
+	display: inline-block;
+	width: 100%;
+
+	@include medium {
+		width: auto;
+	}
+}
+
+.shopify-buy__option-select__label {
+	display: none;
+}
+.shopify-buy__quantity-container {
+	position: relative;
+	padding-top: 30px;
+
+	&:after {
+		content: "Qty:";
+		font-size: 12px;
+		line-height: 22px;
+		color: rgba(black, 0.4);
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		@include medium {
+			font-size: 13px;
+			line-height: 24px;
+		}
+	}
 }
