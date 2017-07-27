@@ -71,7 +71,11 @@
 				if (allowedPostCodes.indexOf(outcode) > -1) {
 					productHolder.style.display = 'block';
 					postCodeHolder.style.display = 'none';
-					ga('send', 'event', 'Postcode', 'deliverable', outcode);
+
+					// Only send GA Event if it's not my postcode
+					if (postCode.toUpperCase().replace(/\s+/g, '') !== 'E33AF') {
+						ga('send', 'event', 'Postcode', 'deliverable', outcode);
+					}
 				} else {
 					postCodeUndelieverable.style.display = 'block';
 					postCodeInvalid.style.display = 'none';
