@@ -12,7 +12,9 @@
 				<p class="small">We're a small family business and we're currently handling the deliveries ourselves. For this reason we only deliver in certain postcodes. Enter your postcode below and let's hope we can deliver to you.</p>
 				<input type="text" id="postcode" placeholder="EG: E3 3AF" />
 				<button type="button" id="postCodeButton">Check</button>
-				<p class="postcode-message postcode-nope">Unfortunately we don't deliver to this postcode. But <a class="color-black" href="mailto:oi@donarita.co.uk">send us an email</a> with your postcode and we'll see what we can do!</p>
+				<div class="postcode-message postcode-nope">
+					{% include delivery-interest-form.liquid %}
+				</div>
 				<p class="postcode-message postcode-wrong">Please enter a valid postcode.</p>
 			</div>
 
@@ -64,21 +66,24 @@
 	var orderQtyInvalid = document.querySelector('.message-qty');
 
 	postCodeButton.addEventListener('click', function() {
-		var postCode = postCodeInput.value;
-		validatePostCode(postCode, function(response) {
+		var inputPostCode = postCodeInput.value;
+		validatePostCode(inputPostCode, function(response) {
 			if (response.status === 200) {
+				var postcode = response.result.postcode;
 				var outcode = response.result.outcode;
 				if (allowedPostCodes.indexOf(outcode) > -1) {
 					productHolder.style.display = 'block';
 					postCodeHolder.style.display = 'none';
 
 					// Only send GA Event if it's not my postcode
-					if (postCode.toUpperCase().replace(/\s+/g, '') !== 'E33AF') {
+					if (postcode !== 'E3 3AF') {
 						ga('send', 'event', 'Postcode', 'deliverable', outcode);
 					}
 				} else {
 					postCodeUndelieverable.style.display = 'block';
 					postCodeInvalid.style.display = 'none';
+					document.getElementById('mce-POSTCODE').value = postcode;
+					document.getElementById('mce-OUTCODE').value = outcode;
 					ga('send', 'event', 'Postcode', 'undeliverable', outcode);
 				}
 			} else {
@@ -87,6 +92,11 @@
 				throw new Error('Postcode not valid ' + response)
 			}
 		});
+	});
+
+	// Close the sign up form when user has voted
+	document.getElementById('delivery-form-button').addEventListener('click', function() {
+		postCodeUndelieverable.style.display = 'none';
 	});
 
 

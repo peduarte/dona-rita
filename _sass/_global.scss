@@ -429,7 +429,9 @@ img {
 }
 
 // FORMS
-input[type="text"], input[type="number"] {
+input[type="text"],
+input[type="number"],
+input[type="email"] {
 	-webkit-appearance: none;
 	appearance: none;
 	font-size: 16px;
@@ -539,6 +541,44 @@ button {
 	}
 }
 
+
+// Deliery interest form styling
+.delivery-interest-form {
+	p {
+		margin-bottom: 10px;
+	}
+
+	.mc-field-group {
+		@include medium {
+			display: flex;
+		}
+	}
+
+	input[type="email"],
+	button {
+		padding: 10px;
+
+	}
+
+	input[type="email"] {
+		@include medium {
+			flex: 3;
+		}
+	}
+
+	button {
+		color: white;
+
+		@include medium {
+			flex: 1;
+		}
+
+		&:not(:disabled):hover {
+			background-color: white;
+			color: $colorSalmon;
+		}
+	}
+}
 
 // Shopify
 .shopify-buy__option-select-wrapper {
