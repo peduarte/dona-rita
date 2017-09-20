@@ -17,7 +17,7 @@ layout: default
 	<div class="grid">
 		<div class="gallery fake-img-group">
 			<div class="col fluid md-7 md-push-1 lg-6 lg-push-2 fake-img-wrapper">
-				<div class="fake-img -three-x-two" style="background-image: url(/images/img-1.jpg);"></div>
+				<div class="fake-img -three-x-two" style="background-image: url(/images/img-2.jpg);"></div>
 			</div>
 
 			<div class="col fluid md-3 fake-img-wrapper">
@@ -25,26 +25,29 @@ layout: default
 			</div>
 		</div>
 	</div>
-
-	{% include about-rita.liquid %}
 </div>
 
+<div class="section -blue">
+	{% include eat.liquid %}
+</div>
+
+<div class="home-product">
+	{% include product.liquid %}
+</div>
 
 <div class="banner">
 	<div class="banner-img -small fake-img -three-x-two" style="background-image: url(/images/banner-mobile.jpg);"></div>
 	<div class="banner-img -medium fake-img -sixteen-x-seven" style="background-image: url(/images/banner.jpg);"></div>
 </div>
 
-
-<div class="section -blue">
-	{% include eat.liquid %}
+<div class="section -salmon testimonial">
+	<div class="grid">
+		<blockquote class="col md-9 md-push-1 lg-push-2">
+			<h3 class="h1">A crunchy outside giving way to a cloud-like interior. Sounds ace, right? Right.</h3>
+			<p>Tom Howells – TimeOut London</p>
+		</blockquote>
+	</div>
 </div>
-
-
-<div class="section -white">
-	{% include family-business.liquid %}
-</div>
-
 
 <div class="section">
 	{% include contact.liquid %}

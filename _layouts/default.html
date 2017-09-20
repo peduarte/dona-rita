@@ -3,7 +3,18 @@
 	<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
 	{% include global/head.html %}
 
-	<body>
+	<body class="debug1">
+		<div class="grid">
+			<nav class="main-nav col md-9 md-push-2">
+				<a {% if page.path == 'index.html' %} class="active" {% endif %} href="/">Home</a>
+				<a {% if page.path == 'story.html' %} class="active" {% endif %} href="/story">Story</a>
+				<a {% if page.path == 'press.html' %} class="active" {% endif %} href="/press">Press</a>
+				<a {% if page.path == 'stockists.html' %} class="active" {% endif %} href="/stockists">Stockists</a>
+
+				<a href="/buy" class="button">Buy online</a>
+			</nav>
+		</div>
+
 		<div class="main">
 			{{ content }}
 		</div>
