@@ -101,15 +101,49 @@ p {
 }
 
 a {
-	text-decoration: none;
 	color: inherit;
+}
 
-	&:hover {
-		text-decoration: underline;
+.main-nav {
+	margin-top: 15px;
+
+	@include medium {
+		display: flex;
+		align-items: baseline;
+	}
+
+	a:not(.button) {
+		text-decoration: none;
+		padding: 10px 0;
+		display: block;
+
+		@include medium {
+			display: inline-block;
+			padding: 15px 20px;
+
+			&:not(.active):hover {
+				text-decoration: underline;
+			}
+		}
+
+		&:first-child {
+			@include medium {
+				margin-left: -20px; // offset padding of first link
+			}
+		}
+
+		&.active {
+			color: $colorYellow;
+		}
+	}
+
+	.button {
+		margin-left: auto;
 	}
 }
 
 .button {
+	text-decoration: none;
 	display: inline-block;
 	border: 1px solid currentColor;
 	font-size: 14px;
@@ -118,7 +152,7 @@ a {
 	letter-spacing: 0.2em;
 
 	&:hover {
-		background-color: $colorSalmon;
+		background-color: $colorYellow;
 		text-decoration: none;
 	}
 
@@ -288,6 +322,12 @@ img {
 
 	&.-salmon {
 		background-color: $colorSalmon;
+		color: white;
+	}
+
+	&.-yellow {
+		background-color: $colorYellow;
+		color: white;
 	}
 }
 
@@ -296,6 +336,67 @@ img {
 
 	@include medium {
 		padding-top: 140px;
+	}
+}
+
+// STOCKISTS
+.stockist-list {
+	@include medium {
+		margin: 30px 0;
+	}
+
+	// 💩
+	div div {
+		margin-bottom: 30px;
+
+		@include medium {
+			padding-right: 15px;
+		}
+	}
+
+	h3 {
+		margin-bottom: 15px;
+	}
+
+	address {
+		font-style: normal;
+
+	}
+}
+
+.stockist-interest {
+	padding-bottom: 60px;
+}
+
+// HOME PRODUCT
+.home-product {
+	padding: 60px 0;
+
+	@include medium {
+		padding-top: 120px;
+		padding-bottom: 160px;
+	}
+}
+
+// PRESS ICONS
+.press-icons {
+
+	a {
+		display: block;
+		opacity: 0.4;
+		transition: opacity 150ms ease-out;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+
+// TESTIMONIAL
+.testimonial {
+	@include medium {
+		padding-top: 120px;
+		padding-bottom: 120px;
 	}
 }
 
@@ -335,6 +436,17 @@ img {
 	display: block;
 	font-size: 20px;
 	line-height: 32px;
+}
+
+// UTILITIES
+.yellow {
+	color: $colorYellow;
+}
+.salmon {
+	color: $colorSalmon;
+}
+.blue {
+	color: $colorBlue;
 }
 
 // FAKE IMG

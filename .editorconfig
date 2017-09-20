@@ -6,7 +6,6 @@ root = true
 
 # Apply for all files
 [*]
-
 charset = utf-8
 
 indent_style = tab
