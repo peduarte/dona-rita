@@ -15,11 +15,11 @@
 	<meta name="author" content="{{ site.author }}">
 
 
-	<meta property="og:url" content="{{ site.url }}">
-	<meta property="og:image" content="{{ site.url }}images/social/hero-1.jpg">
-	<meta property="og:image" content="{{ site.url }}images/social/hero-2.jpg">
-	<meta property="og:image" content="{{ site.url }}images/social/hero-3.jpg">
-	<meta property="og:image" content="{{ site.url }}images/social/hero-4.jpg">
+	<meta property="og:url" content="{{ site.url }}{{page.url}}">
+	<meta property="og:image" content="{{ site.url }}/images/social/hero-1.jpg">
+	<meta property="og:image" content="{{ site.url }}/images/social/hero-2.jpg">
+	<meta property="og:image" content="{{ site.url }}/images/social/hero-3.jpg">
+	<meta property="og:image" content="{{ site.url }}/images/social/hero-4.jpg">
 	<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 	<meta property="og:description" content="{{ site.description }}">
 
@@ -28,16 +28,16 @@
 	<meta name="twitter:creator" content="@oidonarita">
 	<meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 	<meta name="twitter:description" content="{{ site.description }}">
-	<meta name="twitter:url" content="{{ site.url }}">
-	<meta name="twitter:image" content="{{ site.url }}images/social/hero-1.jpg">
+	<meta name="twitter:url" content="{{ site.url }}{{page.url}}">
+	<meta name="twitter:image" content="{{ site.url }}/images/social/hero-1.jpg">
 
 	<link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
 	<link rel="canonical" href="{{ site.url }}{{page.url}}">
-	<link rel="image_src" href="{{ site.url }}images/social/hero-1.jpg">
-	<link rel="icon" type="image/png" href="{{ site.url }}images/social/16x16.png" sizes="16x16">
-	<link rel="icon" type="image/png" href="{{ site.url }}images/social/32x32.png" sizes="32x32">
-	<link rel="icon" type="image/png" href="{{ site.url }}images/social/64x64.png" sizes="64x64">
+	<link rel="image_src" href="{{ site.url }}/images/social/hero-1.jpg">
+	<link rel="icon" type="image/png" href="{{ site.url }}/images/social/16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="{{ site.url }}/images/social/32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="{{ site.url }}/images/social/64x64.png" sizes="64x64">
 
 </head>
