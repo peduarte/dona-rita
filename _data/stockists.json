@@ -32,5 +32,12 @@
 		"area": "Shoreditch",
 		"address": "Old Street Station",
 		"postCode": "EC1Y 1BE"
+	},
+
+	{
+		"name": "Portobello Wholefoods",
+		"area": "Notting Hill",
+		"address": "266 Portobello Rd",
+		"postCode": "W10 5TY"
 	}
 ]
