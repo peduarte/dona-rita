@@ -3,7 +3,7 @@ description: "Brazilian cheese bread. Pão de Queijo."
 author: "Pedro Duarte"
 email: oi@donarita.co.uk
 url: "http://donarita.co.uk"
-phone: "07912950992"
+phone: "07952216979"
 baseurl: ""
 
 
@@ -12,4 +12,4 @@ markdown: kramdown
 permalink: /:categories/:title.html
 
 # Custom
-deliveryDate: "Sunday 8th October"
+deliveryDate: "Sunday 15th October"
