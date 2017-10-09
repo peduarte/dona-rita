@@ -16,7 +16,7 @@
 				<div class="postcode-message postcode-shop">
 					{% assign shop = site.data.stockists | where: 'name', 'Portobello Wholefoods' | first %}
 					<h4>🎉 Head down to your nearest store to buy your frozen pack.</h4>
-					<address>{{ shop.address }}<br>{{ shop.postCode }}</address>
+					<address>{{ shop.name }}<br>{{ shop.address }}<br>{{ shop.postCode }}</address>
 					<a href="https://www.google.com/maps/dir/?api=1&destination={{ shop.postCode }}" target="_blank">View on map</a>
 				</div>
 
