@@ -9,9 +9,17 @@
 			<h3 class="color-salmon1">15 cheesy balls – £5.</h3>
 
 			<div class="postcode" id="postcode-holder">
-				<p class="small">We're a small family business and we're currently handling the deliveries ourselves. For this reason we only deliver in certain postcodes. Enter your postcode below and let's hope we can deliver to you.</p>
+				<p class="small">We're a small family business and we only deliver in certain postcodes. Enter your postcode below and let's hope we can deliver to you.</p>
 				<input type="text" id="postcode" placeholder="EG: E3 3AF" />
 				<button type="button" id="postCodeButton">Check</button>
+
+				<div class="postcode-message postcode-shop">
+					{% assign shop = site.data.stockists | where: 'name', 'Portobello Wholefoods' | first %}
+					<h4>🎉 Head down to your nearest store to buy your frozen pack.</h4>
+					<address>{{ shop.address }}<br>{{ shop.postCode }}</address>
+					<a href="https://www.google.com/maps/dir/?api=1&destination={{ shop.postCode }}" target="_blank">View on map</a>
+				</div>
+
 				<div class="postcode-message postcode-nope">
 					{% include delivery-interest-form.liquid %}
 				</div>
@@ -22,9 +30,8 @@
 			<div id="product-holder" style="display: none;">
 				<p class="small delivery-date">
 					{% include svg/calendar.svg %}
-					Delivery date: {{ site.deliveryDate }}
+					Delivery date: usually within 3-5 days
 				</p>
-				<!-- <p class="small">Next available delivery date will be Sunday 30th July.<br> You can choose one from the following timeslots: morning (9am - 12pm), afternoon (12pm - 5pm) and evening (5pm - 8pm).</p> -->
 				<div id="product-inject"></div>
 			</div>
 			<p class="postcode-message message-qty">The minimum order quantity is 2.</p>
@@ -63,33 +70,53 @@
 
 	var postCodeUndelieverable = document.querySelector('.postcode-nope');
 	var postCodeInvalid = document.querySelector('.postcode-wrong');
+	var storeRecommendation = document.querySelector('.postcode-shop');
 	var orderQtyInvalid = document.querySelector('.message-qty');
+
+	function isDeliverable(outcode) {
+		return allowedPostCodes.indexOf(outcode) > -1;
+	}
+
+	function onPostCodeSuccess(response) {
+		var postcode = response.result.postcode;
+		var outcode = response.result.outcode;
+
+		if (isDeliverable(outcode)) {
+			productHolder.style.display = 'block';
+			postCodeHolder.style.display = 'none';
+
+			// Only send GA Event if it's not my postcode
+			if (postcode !== 'E3 3AF') {
+				ga('send', 'event', 'Postcode', 'deliverable', outcode);
+			}
+		} else {
+			postCodeInvalid.style.display = 'none';
+
+			if (outcode === 'W10') {
+				storeRecommendation.style.display = 'block';
+			}
+			postCodeUndelieverable.style.display = 'block';
+			document.getElementById('mce-POSTCODE').value = postcode;
+			document.getElementById('mce-OUTCODE').value = outcode;
+
+			ga('send', 'event', 'Postcode', 'undeliverable', outcode);
+		}
+	}
+
+	function onPostCodeError(response) {
+		postCodeUndelieverable.style.display = 'none';
+		storeRecommendation.style.display = 'none';
+		postCodeInvalid.style.display = 'block';
+		throw new Error('Postcode not valid ' + response)
+	}
 
 	postCodeButton.addEventListener('click', function() {
 		var inputPostCode = postCodeInput.value;
 		validatePostCode(inputPostCode, function(response) {
 			if (response.status === 200) {
-				var postcode = response.result.postcode;
-				var outcode = response.result.outcode;
-				if (allowedPostCodes.indexOf(outcode) > -1) {
-					productHolder.style.display = 'block';
-					postCodeHolder.style.display = 'none';
-
-					// Only send GA Event if it's not my postcode
-					if (postcode !== 'E3 3AF') {
-						ga('send', 'event', 'Postcode', 'deliverable', outcode);
-					}
-				} else {
-					postCodeUndelieverable.style.display = 'block';
-					postCodeInvalid.style.display = 'none';
-					document.getElementById('mce-POSTCODE').value = postcode;
-					document.getElementById('mce-OUTCODE').value = outcode;
-					ga('send', 'event', 'Postcode', 'undeliverable', outcode);
-				}
+				onPostCodeSuccess(response);
 			} else {
-				postCodeUndelieverable.style.display = 'none';
-				postCodeInvalid.style.display = 'block';
-				throw new Error('Postcode not valid ' + response)
+				onPostCodeError(response);
 			}
 		});
 	});

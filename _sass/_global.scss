@@ -26,6 +26,9 @@ body {
 ::selection {
 	background-color: $colorSalmon;
 }
+address {
+	font-style: normal;
+}
 
 .main {
 	opacity: 0;
@@ -357,11 +360,6 @@ img {
 	h3 {
 		margin-bottom: 15px;
 	}
-
-	address {
-		font-style: normal;
-
-	}
 }
 
 .stockist-interest {
@@ -633,10 +631,15 @@ button {
 .postcode-message {
 	font-size: 14px;
 	padding: 20px;
+	margin-bottom: 20px;
 	color: white;
 	background-color: $colorSalmon;
 
 	display: none;
+
+	&.postcode-shop {
+		background-color: $colorBlue;
+	}
 }
 
 .delivery-date {
