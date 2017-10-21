@@ -5,13 +5,18 @@
 
 	<body class="debug1">
 		<div class="grid">
-			<nav class="main-nav col md-9 md-push-2">
-				<a {% if page.path == 'index.html' %} class="active" {% endif %} href="/">Home</a>
-				<a {% if page.path == 'story.html' %} class="active" {% endif %} href="/story">Story</a>
-				<a {% if page.path == 'press.html' %} class="active" {% endif %} href="/press">Press</a>
-				<a {% if page.path == 'stockists.html' %} class="active" {% endif %} href="/stockists">Stockists</a>
+			<a href="#mobile-nav" class="mobile-menu -open">
+				{% include svg/menu.svg %}
+			</a>
 
-				<a href="/buy" class="button">Buy online</a>
+			<nav id="mobile-nav" class="main-nav -mobile">
+				<a href="#" class="mobile-menu -close">
+					{% include svg/close.svg %}
+				</a>
+				{% include global/nav-links.liquid %}
+			</nav>
+			<nav class="main-nav -desktop col md-9 md-push-2">
+				{% include global/nav-links.liquid %}
 			</nav>
 		</div>
 
