@@ -3,13 +3,13 @@ layout: voucher
 title: Voucher de desconto
 ---
 
-## Get your voucher before our pop-up ends.
+## Pegue o seu voucher antes que acabe.
 
-We’ve partnered with our favourite food influencers to offer you an exclusive discount aimed at the gluten free community.
+Nos gostaríamos de oferecer um desconto especial a todos os brasileiros que vivem em Londres. Porque às vezes tudo que a gente mais quer na vida é saborear um delicioso pão de queijo.
 
-Type in your email address and check your inbox for your 20% off voucher.
+Coloque seu e-mail e verifique sua caixa de entrada e o seu voucher estará lá.
 
-{% include voucher-form.liquid formId="70a85050c0" %}
+{% include voucher-form.liquid formId="70a85050c0" placeholder="Seu endereço de email" buttonText="Enviar voucher" %}
 
 <br>
-<small class="faded">Enjoy 20% off at our Old Street pop-up from the 1st to the 26th of November. You can get the discount as many times as you wish, whether you’re buying freshly baked Pão de Queijo, bake-at-home packs or weekly specials.</small>
+<small class="faded">Aproveite o desconto de  20% na nossa barraca em Old Street Station a partir de 1 até 26 de Novembro.  Você ainda pode usar esse desconto quantas vezes você desejar durante esse periodo comprando o pão de queijo quentinho  ou congelado para poder fazer em casa com a família ou amigos. </small>
