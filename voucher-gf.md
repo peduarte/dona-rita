@@ -1,6 +1,7 @@
 ---
 layout: voucher
 title: Discount voucher
+cover: /images/social/voucher.jpg
 ---
 
 ## Get your voucher before our pop-up ends.

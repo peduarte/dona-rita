@@ -1,6 +1,7 @@
 ---
 layout: voucher
 title: Voucher de desconto
+cover: /images/social/voucher.jpg
 ---
 
 ## Pegue o seu voucher antes que acabe.
