@@ -1,6 +1,6 @@
 ---
 layout: voucher
-title: Dona Rita voucher de desconto
+title: Voucher de desconto
 description: Aproveite o desconto de 20% na nossa barraca em Old Street Station a partir de 1 até 26 de Novembro.
 cover: /images/social/voucher.jpg
 ---
