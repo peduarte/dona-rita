@@ -1,6 +1,6 @@
 ---
 layout: voucher
-title: Dona Rita discount voucher.
+title: Dona Rita discount voucher
 description: Enjoy 20% off at our Old Street pop-up from the 1st to the 26th of November.
 cover: /images/social/voucher.jpg
 ---
