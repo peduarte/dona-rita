@@ -20,6 +20,19 @@ title: Where to buy
 			{% include stockist.liquid %}
 		{% endfor %}
 	</div>
+	<div class="grid stockist-list">
+		{% for shop in site.data.stockists limit: 3 offset:6 %}
+			{% include stockist.liquid %}
+		{% endfor %}
+	</div>
+</div>
+
+<div class="section -blue center">
+	<div class="grid">
+		<h2>Can't find Dona Rita Pão de Queijo near you?</h2>
+		<p>Bring our Product Request Form to your favourite store.</p>
+		<a class="button" href="{{ site.url}}/product-request-form.pdf" target=_blank>Get request form</a>
+	</div>
 </div>
 
 <div class="banner">

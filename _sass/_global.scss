@@ -496,6 +496,10 @@ img {
 	color: $colorBlue;
 }
 
+.center {
+	text-align: center;
+}
+
 // FAKE IMG
 .fake-img-group {
 	@include medium {
@@ -658,6 +662,8 @@ button {
 	margin: 0 20px 20px 0;
 
 	width: 100%;
+
+	border-radius: 0; // thanks to chrome
 
 	@include medium {
 		width: auto;
