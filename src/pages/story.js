@@ -9,7 +9,7 @@ import Family from '../images/family.jpg';
 
 function StoryPage() {
 	return (
-		<div>
+		<div className="main">
 			<Section>
 				<div className="grid">
 					<h1 className="col -block md-push-1 lg-push-2 title">
