@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'gatsby-link';
 
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
@@ -39,6 +40,11 @@ function StoryPage() {
 							she’s been perfecting her secret family recipe. Now her little
 							cheese bread is so delicious, some people think it’s better than
 							the original. We can’t wait for you to try it.
+						</p>
+						<p>
+							<Link to="/ingredients" className="button">
+								Our ingredients
+							</Link>
 						</p>
 					</div>
 
