@@ -5,70 +5,6 @@ import { PostcodeValidator } from '../PostcodeValidator/PostcodeValidator';
 
 import ProductImg from '../../images/product.png';
 
-const allowedPostCodes = [
-	'E1',
-	'E11',
-	'E12',
-	'E14',
-	'E15',
-	'E16',
-	'E1W',
-	'E2',
-	'E20',
-	'E3',
-	'E5',
-	'E6',
-	'E7',
-	'E8',
-	'E9',
-	'E98',
-	'EC1',
-	'EC1A',
-	'EC1M',
-	'EC1N',
-	'EC1P',
-	'EC1R',
-	'EC1V',
-	'EC1Y',
-	'EC2',
-	'EC2A',
-	'EC2M',
-	'EC2N',
-	'EC2P',
-	'EC2R',
-	'EC2V',
-	'EC2Y',
-	'EC3',
-	'EC3A',
-	'EC3M',
-	'EC3N',
-	'EC3P',
-	'EC3R',
-	'EC3V',
-	'EC4',
-	'EC4A',
-	'EC4M',
-	'EC4N',
-	'EC4P',
-	'EC4R',
-	'EC4V',
-	'EC4Y',
-	'EC50',
-	'N1',
-	'N16',
-	'N1P',
-	'N5',
-	'N6',
-	'E18',
-	'IG2',
-	'IG7',
-	'IG8',
-	'IG9',
-	'IG10',
-	'SW4',
-	'SW12',
-];
-
 export class Product extends React.Component {
 	constructor(props) {
 		super(props);
@@ -83,7 +19,7 @@ export class Product extends React.Component {
 	}
 
 	handleValidPostcode = (postcode, outcode) => {
-		const isDeliverable = allowedPostCodes.indexOf(outcode) > -1;
+		const isDeliverable = this.props.postcodes.indexOf(outcode) > -1;
 
 		this.setState(prevState => {
 			return {
@@ -147,20 +83,91 @@ export class Product extends React.Component {
 								!this.state.isDeliverable &&
 								this.state.counter > 0 && (
 									<div className="postcode-message postcode-nope">
-										<h4>Sorry, we don't deliver there.</h4>
+										<form
+											action="//donarita.us16.list-manage.com/subscribe/post?u=eacce3d5004edba44cd8a399b&amp;id=23c2a13999"
+											method="post"
+											id="mc-embedded-subscribe-form"
+											name="mc-embedded-subscribe-form"
+											className="delivery-interest-form"
+											target="_blank"
+											noValidate
+										>
+											<h4>Sorry, we don't deliver there.</h4>
+											<p>
+												But we’re expanding fast! To vote for your area, enter
+												your email address.
+											</p>
+											<div className="mc-field-group">
+												<input
+													type="email"
+													value=""
+													placeholder="Your email address"
+													name="EMAIL"
+													id="mce-EMAIL"
+												/>
+												<input
+													type="text"
+													value=""
+													name="POSTCODE"
+													id="mce-POSTCODE"
+													hidden
+												/>
+												<input
+													type="text"
+													value=""
+													name="OUTCODE"
+													id="mce-OUTCODE"
+													hidden
+												/>
+												<button id="delivery-form-button">Vote</button>
+											</div>
+
+											{/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
+											<div
+												style={{ position: 'absolute', left: '-5000px' }}
+												aria-hidden="true"
+											>
+												<input
+													type="text"
+													name="b_eacce3d5004edba44cd8a399b_23c2a13999"
+													tabIndex="-1"
+													value=""
+												/>
+											</div>
+										</form>
 									</div>
 								)}
 
 							{this.state.isValid &&
 								this.state.outcode === 'W10' && (
 									<div className="postcode-message postcode-shop">
-										{/* {% assign shop = site.data.stockists | where: 'name', 'Portobello Wholefoods' | first %} */}
 										<h4>
 											🎉 Head down to your nearest store to buy your frozen
 											pack.
 										</h4>
-										{/* <address>{{ shop.name }}<br>{{ shop.address }}<br>{{ shop.postCode }}</address>
-										<a href="https://www.google.com/maps/dir/?api=1&destination={{ shop.postCode }}" target="_blank">View on map</a> */}
+										{this.props.stockists
+											.filter(
+												shop => shop.node.name === 'Portobello Wholefoods'
+											)
+											.map(shop => (
+												<div>
+													<address>
+														{shop.node.name}
+														<br />
+														{shop.node.address}
+														<br />
+														{shop.node.postCode}
+													</address>
+													<a
+														href={`https://www.google.com/maps/dir/?api=1&destination=${
+															shop.node.postCode
+														}`}
+														target="_blank"
+													>
+														View on map
+													</a>
+												</div>
+											))}
 									</div>
 								)}
 						</div>

@@ -6,57 +6,6 @@ import { Contact } from '../components/Contact/Contact';
 import Stock from '../images/stock.jpg';
 import FullWidthImageTwoHands from '../images/full-width-image-twohands.jpg';
 
-const stockists = [
-	{
-		name: 'Eat 17 Walthamstow',
-		area: 'Walthamstow',
-		address: '28-30 Orford Rd',
-		postCode: 'E17 9NJ',
-	},
-
-	{
-		name: 'Eat 17 Hackney',
-		area: 'Clapton',
-		address: "64-66 Brooksby's Walk",
-		postCode: 'E9 6DA',
-	},
-
-	{
-		name: 'The Deli Downstairs',
-		area: 'Victoria Park Village',
-		address: '211 Victoria Park Rd',
-		postCode: 'E9 7JN',
-	},
-
-	{
-		name: 'The Grocery',
-		area: 'Shoreditch',
-		address: '52-56 Kingsland Rd',
-		postCode: 'E2 8DP',
-	},
-
-	{
-		name: 'Raw Store',
-		area: 'Shoreditch',
-		address: '343 Old St',
-		postCode: 'EC1V 9LL',
-	},
-
-	{
-		name: 'Pickles of London',
-		area: 'Dalston',
-		address: '45 Kingsland High St',
-		postCode: 'E8 2JS',
-	},
-
-	{
-		name: 'Portobello Wholefoods',
-		area: 'Notting Hill',
-		address: '266 Portobello Rd',
-		postCode: 'W10 5TY',
-	},
-];
-
 function Stockist({ className, shop }) {
 	return (
 		<div className={`col sm-10 md-3 ${className}`}>
@@ -80,7 +29,12 @@ function Stockist({ className, shop }) {
 	);
 }
 
-function StockistsPage() {
+function StockistsPage({ data }) {
+	const groups = [];
+	for (let group in data) {
+		groups.push(data[group]);
+	}
+
 	return (
 		<div className="main">
 			<Section>
@@ -92,45 +46,22 @@ function StockistsPage() {
 						</span>
 					</h1>
 				</div>
-				<div className="grid stockist-list">
-					{stockists.map((shop, index) => {
-						if (index < 3) {
-							return (
-								<Stockist
-									key={shop.name}
-									shop={shop}
-									className={index === 0 ? 'md-push-2 lg-push-3' : ''}
-								/>
-							);
-						}
-					})}
-				</div>
-				<div className="grid stockist-list">
-					{stockists.map((shop, index) => {
-						if (index >= 3 && index < 6) {
-							return (
-								<Stockist
-									key={shop.name}
-									shop={shop}
-									className={index === 3 ? 'md-push-2 lg-push-3' : ''}
-								/>
-							);
-						}
-					})}
-				</div>
-				<div className="grid stockist-list">
-					{stockists.map((shop, index) => {
-						if (index >= 6 && index < 9) {
-							return (
-								<Stockist
-									key={shop.name}
-									shop={shop}
-									className={index === 6 ? 'md-push-2 lg-push-3' : ''}
-								/>
-							);
-						}
-					})}
-				</div>
+
+				{groups.map((group, index) => {
+					return (
+						<div className="grid stockist-list" key={`group-${index}`}>
+							{group.edges.map((shop, index) => {
+								return (
+									<Stockist
+										key={shop.node.name}
+										shop={shop.node}
+										className={index === 0 ? 'md-push-2 lg-push-3' : ''}
+									/>
+								);
+							})}
+						</div>
+					);
+				})}
 			</Section>
 
 			<Section className="-blue center">
@@ -191,5 +122,32 @@ function StockistsPage() {
 		</div>
 	);
 }
+
+export const pageQuery = graphql`
+	query allStockistsQuery {
+		group1: allStockistsJson(limit: 3) {
+			...mutualFields
+		}
+
+		group2: allStockistsJson(limit: 3, skip: 3) {
+			...mutualFields
+		}
+
+		group3: allStockistsJson(limit: 3, skip: 6) {
+			...mutualFields
+		}
+	}
+
+	fragment mutualFields on StockistsJsonConnection {
+		edges {
+			node {
+				name
+				area
+				address
+				postCode
+			}
+		}
+	}
+`;
 
 export default StockistsPage;

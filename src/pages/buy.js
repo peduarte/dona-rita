@@ -7,10 +7,13 @@ import { Product } from '../components/Product/Product';
 import BannerMobile from '../images/banner-mobile.jpg';
 import Banner from '../images/banner.jpg';
 
-function BuyPage() {
+function BuyPage({ data }) {
 	return (
 		<div className="main">
-			<Product />
+			<Product
+				postcodes={data.allPostcodesJson.edges[0].node.allowed}
+				stockists={data.allStockistsJson.edges}
+			/>
 
 			<div className="banner">
 				<div
@@ -29,5 +32,26 @@ function BuyPage() {
 		</div>
 	);
 }
+
+export const pageQuery = graphql`
+	query allStockistsBuyQueryAndAllPostcodesQuery {
+		allPostcodesJson {
+			edges {
+				node {
+					allowed
+				}
+			}
+		}
+		allStockistsJson {
+			edges {
+				node {
+					name
+					address
+					postCode
+				}
+			}
+		}
+	}
+`;
 
 export default BuyPage;
