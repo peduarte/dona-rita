@@ -70,7 +70,7 @@ function StockistsPage({ data }) {
 					<p>Bring our Product Request Form to your favourite store.</p>
 					<a
 						className="button"
-						href="{{ site.url}}/product-request-form.pdf"
+						href="./product-request-form.pdf"
 						target="_blank"
 					>
 						Get request form
