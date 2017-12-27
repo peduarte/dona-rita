@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
+import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTags';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 
@@ -13,6 +14,7 @@ import bannerMobileImg from '../images/banner-mobile.jpg';
 function IndexPage() {
 	return (
 		<div className="main">
+			<TitleAndMetaTags />
 			<Section>
 				<div className="grid">
 					<h1 className="col -block md-push-1 lg-push-2 title">

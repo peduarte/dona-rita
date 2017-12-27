@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTags';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 
@@ -37,6 +38,7 @@ function StockistsPage({ data }) {
 
 	return (
 		<div className="main">
+			<TitleAndMetaTags title="Stockists" pathname="stockists" />
 			<Section>
 				<div className="grid">
 					<h1 className="col -block md-push-1 lg-push-2 title">

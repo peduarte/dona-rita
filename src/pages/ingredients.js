@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTags';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 
@@ -8,6 +9,7 @@ import ingredientsImg from '../images/ingredients.jpg';
 function IngredientsPage() {
 	return (
 		<div className="main">
+			<TitleAndMetaTags title="Ingredients" pathname="ingredients" />
 			<Section>
 				<div className="grid">
 					<h1 className="col -block md-push-1 lg-push-2 title">

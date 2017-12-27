@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 
+import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTags';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 
@@ -11,6 +12,7 @@ import familyImg from '../images/family.jpg';
 function StoryPage() {
 	return (
 		<div className="main">
+			<TitleAndMetaTags title="Story" pathname="story" />
 			<Section>
 				<div className="grid">
 					<h1 className="col -block md-push-1 lg-push-2 title">
@@ -64,7 +66,7 @@ function StoryPage() {
 				/>
 				<div
 					className="banner-img -medium fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${fullWidthImageRolling})` }}
+					style={{ backgroundImage: `url(${fullWidthImageRollingImg})` }}
 				/>
 			</div>
 

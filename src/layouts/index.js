@@ -4,22 +4,26 @@ import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 
 import { Nav } from '../components/Nav/Nav';
-
 import './index.scss';
 
-const TemplateWrapper = ({ children }) => (
+const faviconSizes = [16, 32, 64];
+
+const TemplateWrapper = ({ title, children }) => (
 	<div>
-		<Helmet
-			title="Dona Rita – Brazilian cheese bread. Pão de Queijo."
-			meta={[
-				{ name: 'description', content: 'Sample' },
-				{ name: 'keywords', content: 'sample, something' },
-			]}
-		>
+		<Helmet>
 			<link
 				href="https://fonts.googleapis.com/css?family=Montserrat"
 				rel="stylesheet"
 			/>
+			{faviconSizes.map(size => (
+				<link
+					rel="icon"
+					type="image/png"
+					href={`/social/${size}x${size}.png`}
+					sizes={`${size}x${size}`}
+					key={`${size}x${size}`}
+				/>
+			))}
 		</Helmet>
 		<Nav />
 		{children()}
