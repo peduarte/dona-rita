@@ -3,7 +3,7 @@ import React from 'react';
 import { ProductHolder } from './ProductHolder';
 import { PostcodeValidator } from '../PostcodeValidator/PostcodeValidator';
 
-import ProductImg from '../../images/product.png';
+import productImg from '../../images/product.png';
 
 export class Product extends React.Component {
 	constructor(props) {
@@ -49,7 +49,7 @@ export class Product extends React.Component {
 			<div className="section product-section">
 				<div className="grid">
 					<div className="col sm-11 sm-push-1 md-6 md-push-0 lg-5 lg-push-1">
-						<img src={ProductImg} />
+						<img src={productImg} />
 					</div>
 
 					<div className="col fluid md-6 lg-5">

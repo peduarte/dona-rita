@@ -3,8 +3,8 @@ import React from 'react';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 
-import Stock from '../images/stock.jpg';
-import FullWidthImageTwoHands from '../images/full-width-image-twohands.jpg';
+import stockImg from '../images/stock.jpg';
+import fullWidthImageTwoHandsImg from '../images/full-width-image-twohands.jpg';
 
 function Stockist({ className, shop }) {
 	return (
@@ -81,11 +81,11 @@ function StockistsPage({ data }) {
 			<div className="banner">
 				<div
 					className="banner-img -small fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${FullWidthImageTwoHands})` }}
+					style={{ backgroundImage: `url(${fullWidthImageTwoHandsImg})` }}
 				/>
 				<div
 					className="banner-img -medium fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${FullWidthImageTwoHands})` }}
+					style={{ backgroundImage: `url(${fullWidthImageTwoHandsImg})` }}
 				/>
 			</div>
 
@@ -112,7 +112,7 @@ function StockistsPage({ data }) {
 					<div className="col fluid md-7 md-push-1 lg-6 lg-push-2">
 						<div
 							className="fake-img -three-x-two"
-							style={{ backgroundImage: `url(${Stock})` }}
+							style={{ backgroundImage: `url(${stockImg})` }}
 						/>
 					</div>
 				</div>

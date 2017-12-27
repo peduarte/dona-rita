@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { CalendarIcon } from '../../icons/CalendarIcon';
+
 export class ProductHolder extends React.Component {
 	constructor(props) {
 		super(props);
@@ -117,8 +119,7 @@ export class ProductHolder extends React.Component {
 			<div>
 				<div id="product-holder">
 					<p className="small delivery-date">
-						{/* {% include svg/calendar.svg %} */}
-						Delivery date: usually within 3-5 days
+						<CalendarIcon /> Delivery date: usually within 3-5 days
 					</p>
 					<div id="product-inject" />
 				</div>

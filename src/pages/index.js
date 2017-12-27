@@ -4,11 +4,11 @@ import Link from 'gatsby-link';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 
-import Img1 from '../images/img-1.jpg';
-import Img2 from '../images/img-2.jpg';
-import Rita from '../images/rita.jpg';
-import Banner from '../images/banner.jpg';
-import BannerMobile from '../images/banner-mobile.jpg';
+import img1 from '../images/img-1.jpg';
+import img2 from '../images/img-2.jpg';
+import ritaImg from '../images/rita.jpg';
+import bannerImg from '../images/banner.jpg';
+import bannerMobileImg from '../images/banner-mobile.jpg';
 
 function IndexPage() {
 	return (
@@ -60,14 +60,14 @@ function IndexPage() {
 						<div className="col fluid md-7 md-push-1 lg-6 lg-push-2 fake-img-wrapper">
 							<div
 								className="fake-img -three-x-two"
-								style={{ backgroundImage: `url(${Img2})` }}
+								style={{ backgroundImage: `url(${img2})` }}
 							/>
 						</div>
 
 						<div className="col fluid md-3 fake-img-wrapper">
 							<div
 								className="fake-img -two-x-three"
-								style={{ backgroundImage: `url(${Rita})` }}
+								style={{ backgroundImage: `url(${ritaImg})` }}
 							/>
 						</div>
 					</div>
@@ -103,7 +103,7 @@ function IndexPage() {
 					<div className="col fluid md-7 md-push-1 lg-6 lg-push-2">
 						<div
 							className="fake-img -three-x-two"
-							style={{ backgroundImage: `url(${Img1})` }}
+							style={{ backgroundImage: `url(${img1})` }}
 						/>
 					</div>
 				</div>
@@ -118,11 +118,11 @@ function IndexPage() {
 			<div className="banner">
 				<div
 					className="banner-img -small fake-img -three-x-two"
-					style={{ backgroundImage: `url(${BannerMobile})` }}
+					style={{ backgroundImage: `url(${bannerMobileImg})` }}
 				/>
 				<div
 					className="banner-img -medium fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${Banner})` }}
+					style={{ backgroundImage: `url(${bannerImg})` }}
 				/>
 			</div>
 

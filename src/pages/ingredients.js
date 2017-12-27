@@ -3,7 +3,7 @@ import React from 'react';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 
-import ingredients from '../images/ingredients.jpg';
+import ingredientsImg from '../images/ingredients.jpg';
 
 function IngredientsPage() {
 	return (
@@ -41,7 +41,7 @@ function IngredientsPage() {
 					<div className="col fluid md-7 md-push-1 lg-6 lg-push-2">
 						<div
 							className="fake-img -three-x-two"
-							style={{ backgroundImage: `url(${ingredients})` }}
+							style={{ backgroundImage: `url(${ingredientsImg})` }}
 						/>
 					</div>
 				</div>

@@ -33,9 +33,7 @@ export class PostcodeValidator extends React.Component {
 		const { value } = this.state;
 
 		fetch(`https://api.postcodes.io/postcodes/${value}`)
-			.then(results => {
-				return results.json();
-			})
+			.then(response => response.json())
 			.then(data => {
 				const { status, result } = data;
 				if (status === 200) {

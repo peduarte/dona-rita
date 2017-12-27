@@ -3,15 +3,15 @@ import React from 'react';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 
-import FullWidthImageDark from '../images/full-width-image-dark.jpg';
-import EveningStandard from '../images/press-logos/evening-standard.png';
-import Timeout from '../images/press-logos/timeout.png';
-import TheSundayTimes from '../images/press-logos/the-sunday-times.png';
-import Vice from '../images/press-logos/vice.png';
-import Msn from '../images/press-logos/msn.png';
-import Londonist from '../images/press-logos/londonist.png';
-import Munchies from '../images/press-logos/munchies.png';
-import Metro from '../images/press-logos/metro.png';
+import fullWidthImageDarkImg from '../images/full-width-image-dark.jpg';
+import eveningStandardImg from '../images/press-logos/evening-standard.png';
+import timeoutImg from '../images/press-logos/timeout.png';
+import theSundayTimesImg from '../images/press-logos/the-sunday-times.png';
+import viceImg from '../images/press-logos/vice.png';
+import msnImg from '../images/press-logos/msn.png';
+import londonistImg from '../images/press-logos/londonist.png';
+import munchiesImg from '../images/press-logos/munchies.png';
+import metroImg from '../images/press-logos/metro.png';
 
 function PressPage() {
 	return (
@@ -40,7 +40,7 @@ function PressPage() {
 							href="http://www.standard.co.uk/goingout/restaurants/p-o-de-queijo-in-london-brazilian-cheese-bread-comes-to-old-street-a3530296.html"
 							target="_blank"
 						>
-							<img src={EveningStandard} />
+							<img src={eveningStandardImg} />
 						</a>
 					</div>
 					<div className="col sm-6 md-2">
@@ -48,7 +48,7 @@ function PressPage() {
 							href="https://www.timeout.com/london/blog/a-brazilian-cheese-balls-pop-up-is-coming-to-london-050917"
 							target="_blank"
 						>
-							<img src={Timeout} />
+							<img src={timeoutImg} />
 						</a>
 					</div>
 					<div className="col sm-6 md-2">
@@ -56,7 +56,7 @@ function PressPage() {
 							href="https://www.instagram.com/p/BTo1qaajvIP/?taken-by=sundaytimesfood"
 							target="_blank"
 						>
-							<img src={TheSundayTimes} />
+							<img src={theSundayTimesImg} />
 						</a>
 					</div>
 					<div className="col sm-6 md-2">
@@ -64,7 +64,7 @@ function PressPage() {
 							href="https://munchies.vice.com/en_uk/article/a3dw4g/pao-de-queijo-is-cheesy-gluten-free-comfort-food"
 							target="_blank"
 						>
-							<img src={Vice} />
+							<img src={viceImg} />
 						</a>
 					</div>
 				</div>
@@ -74,7 +74,7 @@ function PressPage() {
 							href="https://www.msn.com/en-gb/news/other/p%C3%A3o-de-queijo-in-london-brazilian-cheese-bread-comes-to-old-street/ar-BBAIZ5w"
 							target="_blank"
 						>
-							<img src={Msn} />
+							<img src={msnImg} />
 						</a>
 					</div>
 					<div className="col sm-6 md-2">
@@ -82,7 +82,7 @@ function PressPage() {
 							href="http://londonist.com/london/things-to-do/things-to-do-in-london-this-week-8-14-may-2017"
 							target="_blank"
 						>
-							<img src={Londonist} />
+							<img src={londonistImg} />
 						</a>
 					</div>
 					<div className="col sm-6 md-2">
@@ -90,7 +90,7 @@ function PressPage() {
 							href="https://munchies.vice.com/en_uk/article/a3dw4g/pao-de-queijo-is-cheesy-gluten-free-comfort-food"
 							target="_blank"
 						>
-							<img src={Munchies} />
+							<img src={munchiesImg} />
 						</a>
 					</div>
 					<div className="col sm-6 md-2">
@@ -98,7 +98,7 @@ function PressPage() {
 							href="http://metro.co.uk/2017/07/14/19-of-the-best-gluten-free-market-stands-in-london-you-have-to-try-6753012/"
 							target="_blank"
 						>
-							<img src={Metro} />
+							<img src={metroImg} />
 						</a>
 					</div>
 				</div>
@@ -107,11 +107,11 @@ function PressPage() {
 			<div className="banner">
 				<div
 					className="banner-img -small fake-img -three-x-two"
-					style={{ backgroundImage: `url(${FullWidthImageDark})` }}
+					style={{ backgroundImage: `url(${fullWidthImageDarkImg})` }}
 				/>
 				<div
 					className="banner-img -medium fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${FullWidthImageDark})` }}
+					style={{ backgroundImage: `url(${fullWidthImageDarkImg})` }}
 				/>
 			</div>
 

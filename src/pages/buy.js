@@ -4,8 +4,8 @@ import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 import { Product } from '../components/Product/Product';
 
-import BannerMobile from '../images/banner-mobile.jpg';
-import Banner from '../images/banner.jpg';
+import bannerMobileImg from '../images/banner-mobile.jpg';
+import bannerImg from '../images/banner.jpg';
 
 function BuyPage({ data }) {
 	return (
@@ -18,11 +18,11 @@ function BuyPage({ data }) {
 			<div className="banner">
 				<div
 					className="banner-img -small fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${BannerMobile})` }}
+					style={{ backgroundImage: `url(${bannerMobileImg})` }}
 				/>
 				<div
 					className="banner-img -medium fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${Banner})` }}
+					style={{ backgroundImage: `url(${bannerImg})` }}
 				/>
 			</div>
 
