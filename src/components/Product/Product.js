@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 
 import { ProductHolder } from './ProductHolder';
 import { PostcodeValidator } from '../PostcodeValidator/PostcodeValidator';
@@ -43,6 +44,16 @@ export class Product extends React.Component {
 			};
 		});
 	};
+
+	componentWillUpdate(nextProps, nextState) {
+		if (nextState.isValid && process.env.NODE_ENV !== 'development') {
+			ReactGA.event({
+				category: 'Postcode',
+				action: nextState.isDeliverable ? 'deliverable' : 'undeliverable',
+				label: nextState.outcode,
+			});
+		}
+	}
 
 	render() {
 		return (

@@ -10,6 +10,7 @@
     "gatsby-plugin-sass": "^1.0.15",
     "gatsby-source-filesystem": "^1.5.11",
     "gatsby-transformer-json": "^1.0.14",
+    "react-ga": "^2.4.0",
     "react-typist": "^2.0.4"
   },
   "main": "n/a",
