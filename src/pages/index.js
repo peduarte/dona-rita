@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTags';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
+import { Typewriter } from '../components/Typewriter/Typewriter';
 
 import img1 from '../images/img-1.jpg';
 import img2 from '../images/img-2.jpg';
@@ -21,7 +22,17 @@ function IndexPage() {
 						Dona Rita<br />
 						Pão de Queijo.
 						<span className="title-desc">Brazilian cheese</span>
-						<span className="title-desc">bread.</span>
+						<Typewriter
+							className="title-desc"
+							texts={[
+								'bread.',
+								'buns.',
+								'balls.',
+								'rolls.',
+								'puffs.',
+								'goodness.',
+							]}
+						/>
 					</h1>
 				</div>
 
