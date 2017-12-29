@@ -10,8 +10,9 @@ export class ProductHolder extends React.Component {
 
 		this.buyButton = null;
 		this.qtyInput = null;
-		this.Product = null;
 		this.minQty = 2;
+		this.Product = null;
+
 		this.state = { isBelowMin: false };
 	}
 
@@ -25,7 +26,7 @@ export class ProductHolder extends React.Component {
 		}
 	};
 
-	applyHacks = component => {
+	afterShopifyInit = component => {
 		this.Product.selectedQuantity = this.minQty;
 
 		this.buyButton = component.node.querySelector('.shopify-buy__btn');
@@ -38,36 +39,39 @@ export class ProductHolder extends React.Component {
 		this.qtyInput.addEventListener('keyup', this.onInputChange);
 	};
 
-	validateQuantity = component => {
+	afterShopifyRender = component => {
 		if (this.Product.selectedQuantity < this.minQty) {
 			this.Product.selectedQuantity = this.minQty;
 		}
 	};
 
-	shopifyReady = (ui, componentOptions) => {
+	shopifyReady = ui => {
 		ui.createComponent('product', {
 			id: [9367035273],
 			node: document.getElementById('product-inject'),
 			moneyFormat: '%C2%A3%7B%7Bamount%7D%7D',
-			options: componentOptions,
+			options: shopifyOptions(this.afterShopifyInit, this.afterShopifyRender),
 		});
-		this.Product = ui.components.product[0];
+
+		// 💩 everytime `ui.createComponent` is called is adds a new product to
+		// to `ui.components.product` array. I can't find a way to append the
+		// input to the dom without calling `createComponent`. Because of this
+		// I need to ensure `this.Product` always refers to the latest instance
+		// of `ui.components.product`
+		const length =
+			ui.components.product.length > 1 ? ui.components.product.length - 1 : 0;
+		this.Product = ui.components.product[length];
 	};
 
 	componentDidMount() {
 		const shopifyBuyInit = () => {
-			const client = ShopifyBuy.buildClient({
+			const client = window.ShopifyBuy.buildClient({
 				domain: 'dona-rita.myshopify.com',
 				apiKey: '260e658ec8cdc689ca1342a79adba733',
 				appId: '6',
 			});
 
-			ShopifyBuy.UI.onReady(client).then(ui =>
-				this.shopifyReady(
-					ui,
-					shopifyOptions(this.applyHacks, this.validateQuantity)
-				)
-			);
+			ShopifyBuy.UI.onReady(client).then(ui => this.shopifyReady(ui));
 		};
 
 		if (window.ShopifyBuy && window.ShopifyBuy.UI) {
