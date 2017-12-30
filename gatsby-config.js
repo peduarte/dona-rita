@@ -7,6 +7,13 @@ module.exports = {
 		'gatsby-plugin-sass',
 		'gatsby-transformer-json',
 		{
+			resolve: 'gatsby-plugin-nprogress',
+			options: {
+				color: '#f09a7a',
+				showSpinner: false,
+			},
+		},
+		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
 				name: `data`,
