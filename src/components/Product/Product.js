@@ -45,6 +45,10 @@ export class Product extends React.Component {
 		});
 	};
 
+	shouldSkipValidation = () => {
+		return this.props.location.search.indexOf('skip') !== -1 ? true : false;
+	};
+
 	componentWillUpdate(nextProps, nextState) {
 		if (nextState.isValid && process.env.NODE_ENV !== 'development') {
 			ReactGA.event({
@@ -74,14 +78,17 @@ export class Product extends React.Component {
 								deliver to you.
 							</p>
 
-							{!this.state.isDeliverable && (
-								<PostcodeValidator
-									onValidPostcode={this.handleValidPostcode}
-									onInvalidPostcode={this.handleInvalidPostcode}
-								/>
-							)}
+							{!this.state.isDeliverable &&
+								!this.shouldSkipValidation() && (
+									<PostcodeValidator
+										onValidPostcode={this.handleValidPostcode}
+										onInvalidPostcode={this.handleInvalidPostcode}
+									/>
+								)}
 
-							{this.state.isDeliverable && <ProductHolder />}
+							{(this.state.isDeliverable || this.shouldSkipValidation()) && (
+								<ProductHolder />
+							)}
 
 							{!this.state.isValid &&
 								this.state.counter > 0 && (

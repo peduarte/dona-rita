@@ -9,7 +9,7 @@ import { Banner } from '../components/Banner/Banner';
 import bannerMobileImg from '../images/banner-mobile.jpg';
 import bannerImg from '../images/banner.jpg';
 
-function BuyPage({ data }) {
+function BuyPage({ data, location }) {
 	return (
 		<div className="main">
 			<TitleAndMetaTags title="Buy online" pathname="buy" />
@@ -17,6 +17,7 @@ function BuyPage({ data }) {
 			<Product
 				postcodes={data.allPostcodesJson.edges[0].node.allowed}
 				stockists={data.allStockistsJson.edges}
+				location={location}
 			/>
 
 			<Banner img={bannerImg} mobileImg={bannerMobileImg} />
