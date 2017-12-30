@@ -4,6 +4,7 @@ import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTag
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 import { Product } from '../components/Product/Product';
+import { Banner } from '../components/Banner/Banner';
 
 import bannerMobileImg from '../images/banner-mobile.jpg';
 import bannerImg from '../images/banner.jpg';
@@ -18,16 +19,7 @@ function BuyPage({ data }) {
 				stockists={data.allStockistsJson.edges}
 			/>
 
-			<div className="banner">
-				<div
-					className="banner-img -small fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${bannerMobileImg})` }}
-				/>
-				<div
-					className="banner-img -medium fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${bannerImg})` }}
-				/>
-			</div>
+			<Banner img={bannerImg} mobileImg={bannerMobileImg} />
 
 			<Section>
 				<Contact />

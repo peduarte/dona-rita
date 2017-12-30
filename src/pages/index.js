@@ -5,6 +5,8 @@ import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTag
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
 import { Typewriter } from '../components/Typewriter/Typewriter';
+import { Banner } from '../components/Banner/Banner';
+import { FakeImg } from '../components/FakeImg/FakeImg';
 
 import img1 from '../images/img-1.jpg';
 import img2 from '../images/img-2.jpg';
@@ -71,17 +73,11 @@ function IndexPage() {
 				<div className="grid">
 					<div className="gallery fake-img-group">
 						<div className="col fluid md-7 md-push-1 lg-6 lg-push-2 fake-img-wrapper">
-							<div
-								className="fake-img -three-x-two"
-								style={{ backgroundImage: `url(${img2})` }}
-							/>
+							<FakeImg className="-three-x-two" img={img2} />
 						</div>
 
 						<div className="col fluid md-3 fake-img-wrapper">
-							<div
-								className="fake-img -two-x-three"
-								style={{ backgroundImage: `url(${ritaImg})` }}
-							/>
+							<FakeImg className="-two-x-three" img={ritaImg} />
 						</div>
 					</div>
 				</div>
@@ -114,10 +110,7 @@ function IndexPage() {
 
 				<div className="grid">
 					<div className="col fluid md-7 md-push-1 lg-6 lg-push-2">
-						<div
-							className="fake-img -three-x-two"
-							style={{ backgroundImage: `url(${img1})` }}
-						/>
+						<FakeImg className="-three-x-two" img={img1} />
 					</div>
 				</div>
 
@@ -128,16 +121,7 @@ function IndexPage() {
 				</div>
 			</Section>
 
-			<div className="banner">
-				<div
-					className="banner-img -small fake-img -three-x-two"
-					style={{ backgroundImage: `url(${bannerMobileImg})` }}
-				/>
-				<div
-					className="banner-img -medium fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${bannerImg})` }}
-				/>
-			</div>
+			<Banner img={bannerImg} mobileImg={bannerMobileImg} />
 
 			<Section className="-salmon testimonial">
 				<div className="grid">

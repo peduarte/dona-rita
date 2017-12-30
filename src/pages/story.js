@@ -4,6 +4,8 @@ import Link from 'gatsby-link';
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTags';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
+import { FakeImg } from '../components/FakeImg/FakeImg';
+import { Banner } from '../components/Banner/Banner';
 
 import fullWidthImageRollingImg from '../images/full-width-image-rolling.jpg';
 import storyImg from '../images/story.jpg';
@@ -22,10 +24,7 @@ function StoryPage() {
 				</div>
 				<div className="grid">
 					<div className="col fluid md-7 md-push-1 lg-6 lg-push-2">
-						<div
-							className="fake-img -square"
-							style={{ backgroundImage: `url(${storyImg})` }}
-						/>
+						<FakeImg className="-square" img={storyImg} />
 					</div>
 				</div>
 				<div className="grid">
@@ -59,16 +58,10 @@ function StoryPage() {
 				</div>
 			</Section>
 
-			<div className="banner">
-				<div
-					className="banner-img -small fake-img -three-x-two"
-					style={{ backgroundImage: `url(${fullWidthImageRollingImg})` }}
-				/>
-				<div
-					className="banner-img -medium fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${fullWidthImageRollingImg})` }}
-				/>
-			</div>
+			<Banner
+				img={fullWidthImageRollingImg}
+				mobileImg={fullWidthImageRollingImg}
+			/>
 
 			<Section className="-white">
 				<div className="grid">
@@ -99,10 +92,7 @@ function StoryPage() {
 					</div>
 
 					<div className="col fluid md-7 md-push-1 lg-6 lg-push-2">
-						<div
-							className="fake-img -three-x-two"
-							style={{ backgroundImage: `url(${familyImg})` }}
-						/>
+						<FakeImg className="-three-x-two" img={familyImg} />
 					</div>
 					<div className="col fluid md-7 md-push-1 lg-6 lg-push-2 small faded">
 						Family photo by <a href="https://munchies.com">Munchies</a>.

@@ -3,6 +3,7 @@ import React from 'react';
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTags';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
+import { Banner } from '../components/Banner/Banner';
 
 import fullWidthImageDarkImg from '../images/full-width-image-dark.jpg';
 import eveningStandardImg from '../images/press-logos/evening-standard.png';
@@ -106,16 +107,7 @@ function PressPage() {
 				</div>
 			</Section>
 
-			<div className="banner">
-				<div
-					className="banner-img -small fake-img -three-x-two"
-					style={{ backgroundImage: `url(${fullWidthImageDarkImg})` }}
-				/>
-				<div
-					className="banner-img -medium fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${fullWidthImageDarkImg})` }}
-				/>
-			</div>
+			<Banner img={fullWidthImageDarkImg} mobileImg={fullWidthImageDarkImg} />
 
 			<div className="section -salmon testimonial">
 				<div className="grid">

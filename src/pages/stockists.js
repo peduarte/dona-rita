@@ -3,6 +3,8 @@ import React from 'react';
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTags';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
+import { FakeImg } from '../components/FakeImg/FakeImg';
+import { Banner } from '../components/Banner/Banner';
 
 import stockImg from '../images/stock.jpg';
 import fullWidthImageTwoHandsImg from '../images/full-width-image-twohands.jpg';
@@ -80,16 +82,10 @@ function StockistsPage({ data }) {
 				</div>
 			</Section>
 
-			<div className="banner">
-				<div
-					className="banner-img -small fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${fullWidthImageTwoHandsImg})` }}
-				/>
-				<div
-					className="banner-img -medium fake-img -sixteen-x-seven"
-					style={{ backgroundImage: `url(${fullWidthImageTwoHandsImg})` }}
-				/>
-			</div>
+			<Banner
+				img={fullWidthImageTwoHandsImg}
+				mobileImg={fullWidthImageTwoHandsImg}
+			/>
 
 			<Section className="-blue stockist-interest">
 				<div className="grid">
@@ -112,10 +108,7 @@ function StockistsPage({ data }) {
 
 				<div className="grid">
 					<div className="col fluid md-7 md-push-1 lg-6 lg-push-2">
-						<div
-							className="fake-img -three-x-two"
-							style={{ backgroundImage: `url(${stockImg})` }}
-						/>
+						<FakeImg className="-three-x-two" img={stockImg} />
 					</div>
 				</div>
 			</Section>

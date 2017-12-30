@@ -3,6 +3,7 @@ import React from 'react';
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTags';
 import { Section } from '../components/Section/Section';
 import { Contact } from '../components/Contact/Contact';
+import { FakeImg } from '../components/FakeImg/FakeImg';
 
 import ingredientsImg from '../images/ingredients.jpg';
 
@@ -41,10 +42,7 @@ function IngredientsPage() {
 
 				<div className="grid">
 					<div className="col fluid md-7 md-push-1 lg-6 lg-push-2">
-						<div
-							className="fake-img -three-x-two"
-							style={{ backgroundImage: `url(${ingredientsImg})` }}
-						/>
+						<FakeImg className="-three-x-two" img={ingredientsImg} />
 					</div>
 				</div>
 			</Section>
