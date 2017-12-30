@@ -4,36 +4,58 @@ import Link from 'gatsby-link';
 import { BurgerIcon } from '../../icons/BurgerIcon';
 import { CrossIcon } from '../../icons/CrossIcon';
 
-export function Nav() {
-	return (
-		<div className="grid">
-			<a href="#mobile-nav" className="mobile-menu -open">
-				<BurgerIcon />
-			</a>
+export class Nav extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { isOpened: false };
+	}
 
-			<nav id="mobile-nav" className="main-nav -mobile">
-				<a href="#" className="mobile-menu -close">
-					<CrossIcon />
+	handleClose = () => this.setState({ isOpened: false });
+	handleOpen = () => this.setState({ isOpened: true });
+
+	renderLinks = (links, onClick) => {
+		return links.map(link => (
+			<Link
+				key={link.to}
+				className={link.to === '/buy' ? 'button' : ''}
+				to={link.to}
+				title={link.name}
+				onClick={onClick}
+			>
+				{link.name}
+			</Link>
+		));
+	};
+
+	render() {
+		const links = [
+			{ name: 'Home', to: '/' },
+			{ name: 'Story', to: '/story' },
+			{ name: 'Press', to: '/press' },
+			{ name: 'Stockists', to: '/stockists' },
+			{ name: 'Buy online', to: '/buy' },
+		];
+		return (
+			<div className="grid">
+				<a className="mobile-menu -open" onClick={this.handleOpen}>
+					<BurgerIcon />
 				</a>
-				<Link to="/">Home</Link>
-				<Link to="/story">Story</Link>
-				<Link to="/press">Press</Link>
-				<Link to="/stockists">Stockists</Link>
 
-				<Link to="/buy" className="button">
-					Buy online
-				</Link>
-			</nav>
-			<nav className="main-nav -desktop col md-9 md-push-2">
-				<Link to="/">Home</Link>
-				<Link to="/story">Story</Link>
-				<Link to="/press">Press</Link>
-				<Link to="/stockists">Stockists</Link>
-
-				<Link to="/buy" className="button">
-					Buy online
-				</Link>
-			</nav>
-		</div>
-	);
+				<nav
+					id="mobile-nav"
+					className={`main-nav -mobile ${
+						this.state.isOpened ? 'is-opened' : null
+					}`}
+				>
+					<a className="mobile-menu -close" onClick={this.handleClose}>
+						<CrossIcon />
+					</a>
+					{this.renderLinks(links, this.handleClose)}
+				</nav>
+				<nav className="main-nav -desktop col md-9 md-push-2">
+					{this.renderLinks(links)}
+				</nav>
+			</div>
+		);
+	}
 }

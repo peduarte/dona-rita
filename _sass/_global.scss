@@ -130,7 +130,7 @@ a {
 		font-size: 16px;
 		line-height: 30px;
 
-		&:target {
+		&.is-opened {
 			display: flex;
 		}
 
@@ -141,7 +141,7 @@ a {
 		}
 
 		@include medium {
-			display: none;
+			display: none !important;
 		}
 	}
 
