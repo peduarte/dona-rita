@@ -523,9 +523,25 @@ img {
 	background-position: center center;
 	margin-bottom: 20px;
 	position: relative;
+	background-color: $colorSalmon;
 
 	@include medium {
 		margin-bottom: 0;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $colorSalmon;
+	}
+
+	&.is-loaded::after {
+		opacity: 0;
+		transition: opacity 2000ms $easeOutQuart;
 	}
 
 	&.-two-x-three {
@@ -548,21 +564,6 @@ img {
 		}
 	}
 
-	// TODO: reimplement
-	&::after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background-color: $colorSalmon;
-	}
-
-	&.is-loaded::after {
-		opacity: 0;
-		transition: opacity 2000ms $easeOutQuart;
-	}
 }
 
 // BANNER
