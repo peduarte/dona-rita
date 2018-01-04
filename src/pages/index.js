@@ -3,6 +3,7 @@ import Link from 'gatsby-link';
 
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags/TitleAndMetaTags';
 import { Section } from '../components/Section/Section';
+import { Product } from '../components/Product/Product';
 import { Contact } from '../components/Contact/Contact';
 import { Typewriter } from '../components/Typewriter/Typewriter';
 import { Banner } from '../components/Banner/Banner';
@@ -14,7 +15,7 @@ import ritaImg from '../images/rita.jpg';
 import bannerImg from '../images/banner.jpg';
 import bannerMobileImg from '../images/banner-mobile.jpg';
 
-function IndexPage() {
+function IndexPage({ data, location }) {
 	return (
 		<div className="main">
 			<TitleAndMetaTags />
@@ -121,6 +122,12 @@ function IndexPage() {
 				</div>
 			</Section>
 
+			<Product
+				postcodes={data.allPostcodesJson.edges[0].node.allowed}
+				stockists={data.allStockistsJson.edges}
+				location={location}
+			/>
+
 			<Banner img={bannerImg} mobileImg={bannerMobileImg} />
 
 			<Section className="-salmon testimonial">
@@ -141,5 +148,26 @@ function IndexPage() {
 		</div>
 	);
 }
+
+export const pageQuery = graphql`
+	query allStockistsBuyQueryAndAllPostcodesIndexQuery {
+		allPostcodesJson {
+			edges {
+				node {
+					allowed
+				}
+			}
+		}
+		allStockistsJson {
+			edges {
+				node {
+					name
+					address
+					postCode
+				}
+			}
+		}
+	}
+`;
 
 export default IndexPage;
