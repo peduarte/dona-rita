@@ -18,7 +18,6 @@ function BuyPage({ data, location }) {
 				postcodes={data.allPostcodesJson.edges[0].node.allowed}
 				stockists={data.allStockistsJson.edges}
 				location={location}
-				soldout
 			/>
 
 			<Banner img={bannerImg} mobileImg={bannerMobileImg} />
@@ -31,7 +30,7 @@ function BuyPage({ data, location }) {
 }
 
 export const pageQuery = graphql`
-	query allStockistsBuyQueryAndAllPostcodesQuery {
+	query allStockistsBuyQueryAndAllPostcodesBuyQuery {
 		allPostcodesJson {
 			edges {
 				node {
